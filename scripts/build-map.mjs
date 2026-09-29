@@ -1,5 +1,5 @@
-// Generates assets/world.json (projected country outlines) and copies the matching
-// flags into assets/flags/. Run with `npm run build:map`; the output is committed so
+// Generates public/assets/world.json (projected country outlines) and copies the
+// matching flags into public/assets/flags/. Run with `npm run build:map`; the output is committed so
 // the page itself needs no mapping libraries.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync, rmSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -32,15 +32,15 @@ for (const f of world.features) {
   out.push({ code, name: f.properties.name, d: round(d) });
 }
 
-mkdirSync("assets", { recursive: true });
-writeFileSync("assets/world.json", JSON.stringify({ width: WIDTH, height: HEIGHT, countries: out }));
+mkdirSync("public/assets", { recursive: true });
+writeFileSync("public/assets/world.json", JSON.stringify({ width: WIDTH, height: HEIGHT, countries: out }));
 
-rmSync("assets/flags", { recursive: true, force: true });
-mkdirSync("assets/flags", { recursive: true });
+rmSync("public/assets/flags", { recursive: true, force: true });
+mkdirSync("public/assets/flags", { recursive: true });
 const missing = [];
 for (const code of new Set(out.map((c) => c.code))) {
   const src = flagDir + code + ".svg";
-  if (code && existsSync(src)) copyFileSync(src, `assets/flags/${code}.svg`);
+  if (code && existsSync(src)) copyFileSync(src, `public/assets/flags/${code}.svg`);
   else missing.push(code || "(none)");
 }
 
