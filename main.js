@@ -320,6 +320,42 @@
     });
 })();
 
+// Theme toggle. The initial theme is set by the inline script in <head>; an explicit
+// choice is saved, otherwise the page keeps following the system setting.
+(function themeToggle() {
+  const root = document.documentElement;
+  const btn = document.querySelector("[data-theme-toggle]");
+  const system = matchMedia("(prefers-color-scheme: light)");
+  const saved = () => {
+    try { return localStorage.getItem("theme"); } catch { return null; }
+  };
+
+  const apply = (theme, animate) => {
+    if (animate) {
+      root.classList.add("theme-anim");
+      setTimeout(() => root.classList.remove("theme-anim"), 350);
+    }
+    root.dataset.theme = theme;
+    if (btn) {
+      const next = theme === "dark" ? "light" : "dark";
+      btn.setAttribute("aria-label", `Switch to ${next} mode`);
+      btn.title = `Switch to ${next} mode`;
+    }
+  };
+
+  apply(root.dataset.theme === "light" ? "light" : "dark", false);
+
+  btn?.addEventListener("click", () => {
+    const theme = root.dataset.theme === "dark" ? "light" : "dark";
+    try { localStorage.setItem("theme", theme); } catch {}
+    apply(theme, true);
+  });
+
+  system.addEventListener("change", (e) => {
+    if (!saved()) apply(e.matches ? "light" : "dark", true);
+  });
+})();
+
 // Waitlist forms: no backend yet, so confirm inline.
 document.querySelectorAll("[data-form]").forEach((form) => {
   form.addEventListener("submit", (e) => {
