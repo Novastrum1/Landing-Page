@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Novastrum — Forex and crypto, traded with discipline</title>
-  <meta name="description" content="Trade forex and crypto automatically with clear rules and no surprises. Start in paper mode and go live only when Novastrum meets your standard." />
+  <meta name="description" content="Your AI trading assistant for forex, gold and crypto. Every trade is sized, capped and stopped before it's placed. Start in paper mode and go live only when Novastrum meets your standard." />
   <meta name="color-scheme" content="dark light" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
@@ -22,28 +22,35 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;600;700&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="announce">
-    Novastrum early access is opening soon. <a href="#waitlist">Join the waitlist</a>
+    <span class="pill pill-green"><img src="/icons/dot-teal.svg" alt="" width="6" height="6" />Early access</span>
+    <span class="announce-text">Paper trading opens to the first waitlist group soon.</span>
+    <a href="#waitlist" class="announce-link">Join the waitlist <img src="/icons/arrow-right.svg" alt="" width="14" height="14" /></a>
   </div>
 
   <header class="nav">
     <div class="wrap nav-inner">
-      <a href="#" class="logo" aria-label="Novastrum home"><img src="/logo.png" alt="Novastrum" width="149" height="40" /></a>
-      <nav class="nav-links" aria-label="Primary">
+      <a href="#" class="logo" aria-label="Novastrum home"><img src="/logo.png" alt="Novastrum" width="152" height="41" /></a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
         <a href="#how">How it works</a>
-        <a href="#risk">Risk &amp; Security</a>
+        <a href="#strategy">Strategy</a>
+        <a href="#safety">Safety</a>
+        <a href="#track-record">Track record</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-actions">
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+        <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+          <img class="moon" src="/icons/moon.svg" alt="" width="18" height="18" />
           <svg class="sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <svg class="moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
         </button>
-        <a href="#waitlist" class="btn btn-sm">Join the waitlist</a>
+        <a href="#waitlist" class="btn btn-sm"><span class="long">Join the waitlist</span><span class="short">Join</span></a>
+        <button type="button" class="icon-btn menu-toggle" data-menu-toggle aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 18 18" width="18" height="18" aria-hidden="true"><path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -51,461 +58,824 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="wrap hero-top">
-        <div class="hero-main">
+      <div class="wrap hero-row">
+        <div class="hero-left">
+          <p class="eyebrow">YOUR AI TRADING ASSISTANT<span class="hide-sm"> · FOREX · GOLD · CRYPTO</span></p>
           <h1>Forex and crypto, traded with discipline.</h1>
-          <div>
-            <form class="email-form" data-form>
-              <input type="email" required placeholder="Enter your email" aria-label="Email address" />
-              <button class="btn" type="submit">Join the waitlist</button>
-            </form>
-            <p class="mono-note">Every trade is sized, capped, and stopped before it's placed. Start in paper mode, see why each trade happens, and go live only when Novastrum meets your standard.</p>
-          </div>
+          <p class="hero-lede show-sm">Every trade is sized, capped and stopped before it’s placed. Start in paper mode and go live only when you’re ready.</p>
+          <form class="hero-form" data-hero-form novalidate>
+            <div class="hero-form-row">
+              <label class="field-icon">
+                <img src="/icons/mail.svg" alt="" width="18" height="18" />
+                <input type="email" name="email" autocomplete="email" placeholder="Enter your email" aria-label="Email address" aria-describedby="hero-email-msg" />
+              </label>
+              <button class="btn btn-lg" type="submit">Join the waitlist</button>
+            </div>
+            <p class="form-note" id="hero-email-msg" data-default="No spam. Just your invite and product updates. Unsubscribe any time.">
+              <img src="/icons/lock-sm.svg" alt="" width="14" height="14" />
+              <span>No spam. Just your invite and product updates. Unsubscribe any time.</span>
+            </p>
+          </form>
         </div>
-        <p class="hero-lede">Trade forex and crypto automatically with clear rules and no surprises. Every position is sized, capped, and stopped before it is placed. Start in paper mode and go live only when Novastrum meets your standard.</p>
+        <div class="hero-right">
+          <p class="hero-lede hide-sm">Every trade is sized, capped and stopped before it’s placed. Start in paper mode, see why each trade happens, and go live only when Novastrum meets your standard.</p>
+          <ul class="trust-list">
+            <li><span class="trust-ico"><img src="/icons/trust-play.svg" alt="" width="15" height="15" /></span><span>Paper trading first<span class="hide-sm">, with real prices</span></span></li>
+            <li><span class="trust-ico"><img src="/icons/trust-lock.svg" alt="" width="15" height="15" /></span>Trade-only access. We never hold your money</li>
+            <li><span class="trust-ico"><img src="/icons/trust-shield.svg" alt="" width="15" height="15" /></span>1% risk per trade by default, 2% hard cap</li>
+            <li><span class="trust-ico"><img src="/icons/trust-stop.svg" alt="" width="15" height="15" /></span>One-tap emergency stop</li>
+          </ul>
+        </div>
       </div>
+    </section>
 
-      <div class="chart" aria-hidden="true">
-        <div class="ticker">
-          <div class="t t1"><span>AAPL 228.40 · BTC/USDT 67,410 · EUR/USD 1.0842 · ENTRY 67,215 · EXIT 68,940 · SIZE 2.0% · LATENCY 0.4s · STATUS OK · </span><span>AAPL 228.40 · BTC/USDT 67,410 · EUR/USD 1.0842 · ENTRY 67,215 · EXIT 68,940 · SIZE 2.0% · LATENCY 0.4s · STATUS OK · </span></div>
-          <div class="t t2"><span>EUR/USD 1.0842 · AAPL 228.40 · BTC/USDT 67,410 · DRAWDOWN 2.1% · PAPER MODE · VOL 1.8M · STOP -1.5% · TP +3.0% · R:R 1:2 · </span><span>EUR/USD 1.0842 · AAPL 228.40 · BTC/USDT 67,410 · DRAWDOWN 2.1% · PAPER MODE · VOL 1.8M · STOP -1.5% · TP +3.0% · R:R 1:2 · </span></div>
-          <div class="t t3"><span>ENTRY 67,215 · EXIT 68,940 · SIZE 2.0% · STATUS OK · BTC/USDT 67,410 · EUR/USD 1.0842 · AAPL 228.40 · PAPER MODE · </span><span>ENTRY 67,215 · EXIT 68,940 · SIZE 2.0% · STATUS OK · BTC/USDT 67,410 · EUR/USD 1.0842 · AAPL 228.40 · PAPER MODE · </span></div>
-        </div>
-        <svg id="live-chart" viewBox="0 0 1440 594" preserveAspectRatio="xMaxYMid slice">
-          <defs><clipPath id="plot-clip"><rect x="0" y="0" width="1336" height="594" /></clipPath></defs>
-          <g id="grid" class="grid"></g>
-          <text class="chart-title" x="27" y="34">NOVASTRUM · MULTI-ASSET · 15M</text>
-          <g clip-path="url(#plot-clip)">
-          <g id="scroll">
+    <!-- Ticker -->
+    <div class="ticker" aria-label="Market snapshot">
+      <div class="ticker-track">
+        <ul class="ticker-list">
+          <li>EUR/USD <b>1.0842</b> <i class="up">+0.18%</i></li>
+          <li>GBP/USD <b>1.2743</b> <i class="dn">−0.06%</i></li>
+          <li>USD/JPY <b>151.84</b> <i class="up">+0.11%</i></li>
+          <li>XAU/USD <b>2,384.10</b> <i class="up">+0.42%</i></li>
+          <li>BTC/USDT <b>67,410</b> <i class="dn">−0.85%</i></li>
+          <li>ETH/USDT <b>3,180</b> <i class="up">+0.37%</i></li>
+          <li>MODE <i class="amber">PAPER</i></li>
+          <li>RISK/TRADE <b>1.0%</b></li>
+          <li>NEWS SHIELD <i class="up">ARMED</i></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Live chart -->
+    <div class="chart" aria-hidden="true">
+      <svg id="live-chart" viewBox="0 0 1440 594" preserveAspectRatio="xMaxYMid slice">
+        <defs><clipPath id="plot-clip"><rect x="0" y="0" width="1336" height="594" /></clipPath></defs>
+        <g id="grid" class="grid"></g>
+        <text class="chart-title" x="27" y="35">NOVASTRUM · MULTI-ASSET · 15M</text>
+        <g clip-path="url(#plot-clip)">
+        <g id="scroll">
           <g class="candles">
-          <g class="up"><rect x="160.3" y="310.7" width="1" height="60.5"/><rect x="152.3" y="330.2" width="17.5" height="24.1"/></g>
-          <g class="up"><rect x="207.1" y="306.0" width="1" height="64.0"/><rect x="199.0" y="324.7" width="17.5" height="29.8"/></g>
-          <g class="up"><rect x="230.4" y="339.2" width="1" height="58.3"/><rect x="222.4" y="357.6" width="17.5" height="28.2"/></g>
-          <g class="up"><rect x="277.1" y="383.9" width="1" height="49.2"/><rect x="269.1" y="401.4" width="17.5" height="22.2"/></g>
-          <g class="up"><rect x="370.6" y="424.2" width="1" height="44.9"/><rect x="362.5" y="439.7" width="17.5" height="13.5"/></g>
-          <g class="up"><rect x="393.9" y="402.8" width="1" height="64.9"/><rect x="385.9" y="417.8" width="17.5" height="37.7"/></g>
-          <g class="up"><rect x="417.3" y="386.9" width="1" height="42.2"/><rect x="409.2" y="401.4" width="17.5" height="20.3"/></g>
-          <g class="up"><rect x="440.6" y="365.5" width="1" height="58.0"/><rect x="432.6" y="379.5" width="17.5" height="35.2"/></g>
-          <g class="up"><rect x="487.4" y="355.7" width="1" height="60.6"/><rect x="479.3" y="368.5" width="17.5" height="31.2"/></g>
-          <g class="up"><rect x="510.7" y="339.9" width="1" height="61.5"/><rect x="502.7" y="352.1" width="17.5" height="31.8"/></g>
-          <g class="up"><rect x="534.1" y="318.6" width="1" height="53.6"/><rect x="526.0" y="330.2" width="17.5" height="25.8"/></g>
-          <g class="up"><rect x="580.8" y="303.4" width="1" height="37.8"/><rect x="572.8" y="313.8" width="17.5" height="19.5"/></g>
-          <g class="up"><rect x="604.1" y="287.6" width="1" height="55.9"/><rect x="596.1" y="297.4" width="17.5" height="37.8"/></g>
-          <g class="up"><rect x="627.5" y="266.3" width="1" height="34.7"/><rect x="619.5" y="275.5" width="17.5" height="12.5"/></g>
-          <g class="up"><rect x="674.2" y="251.2" width="1" height="41.8"/><rect x="666.2" y="259.0" width="17.5" height="16.4"/></g>
-          <g class="up"><rect x="697.6" y="229.9" width="1" height="60.5"/><rect x="689.6" y="237.1" width="17.5" height="36.8"/></g>
-          <g class="up"><rect x="720.9" y="208.6" width="1" height="90.0"/><rect x="712.9" y="215.2" width="17.5" height="70.2"/></g>
-          <g class="up"><rect x="744.3" y="172.1" width="1" height="98.6"/><rect x="736.3" y="187.9" width="17.5" height="64.1"/></g>
-          <g class="up"><rect x="791.0" y="141.9" width="1" height="104.6"/><rect x="783.0" y="160.5" width="17.5" height="58.5"/></g>
-          <g class="up"><rect x="907.8" y="209.2" width="1" height="58.9"/><rect x="899.8" y="220.7" width="17.5" height="38.2"/></g>
-          <g class="up"><rect x="977.9" y="229.3" width="1" height="48.3"/><rect x="969.9" y="242.6" width="17.5" height="19.3"/></g>
-          <g class="up"><rect x="1048.0" y="249.5" width="1" height="61.0"/><rect x="1039.9" y="264.5" width="17.5" height="31.9"/></g>
-          <g class="up"><rect x="1071.3" y="232.6" width="1" height="56.3"/><rect x="1063.3" y="248.1" width="17.5" height="31.1"/></g>
-          <g class="dn"><rect x="190.6" y="294.5" width="1" height="69.6"/><rect x="182.6" y="313.5" width="17.5" height="33.1"/></g>
-          <g class="dn"><rect x="260.7" y="327.3" width="1" height="58.9"/><rect x="252.7" y="345.2" width="17.5" height="34.2"/></g>
-          <g class="dn"><rect x="307.4" y="369.2" width="1" height="68.1"/><rect x="299.4" y="386.2" width="17.5" height="37.1"/></g>
-          <g class="dn"><rect x="330.8" y="418.7" width="1" height="48.8"/><rect x="322.8" y="435.2" width="17.5" height="15.5"/></g>
-          <g class="dn"><rect x="354.1" y="401.8" width="1" height="71.8"/><rect x="346.1" y="417.8" width="17.5" height="38.3"/></g>
-          <g class="dn"><rect x="470.9" y="356.0" width="1" height="53.5"/><rect x="462.9" y="369.3" width="17.5" height="26.6"/></g>
-          <g class="dn"><rect x="564.4" y="300.0" width="1" height="59.4"/><rect x="556.3" y="311.0" width="17.5" height="35.7"/></g>
-          <g class="dn"><rect x="657.8" y="245.2" width="1" height="63.1"/><rect x="649.8" y="253.7" width="17.5" height="38.3"/></g>
-          <g class="dn"><rect x="774.6" y="122.7" width="1" height="71.2"/><rect x="766.6" y="139.9" width="17.5" height="37.0"/></g>
-          <g class="dn"><rect x="821.3" y="91.3" width="1" height="126.4"/><rect x="813.3" y="111.2" width="17.5" height="71.2"/></g>
-          <g class="dn"><rect x="844.7" y="154.2" width="1" height="83.1"/><rect x="836.6" y="175.6" width="17.5" height="23.2"/></g>
-          <g class="dn"><rect x="868.0" y="173.6" width="1" height="63.8"/><rect x="860.0" y="183.9" width="17.5" height="36.8"/></g>
-          <g class="dn"><rect x="891.4" y="209.7" width="1" height="41.2"/><rect x="883.4" y="220.5" width="17.5" height="16.6"/></g>
-          <g class="dn"><rect x="938.1" y="218.2" width="1" height="31.6"/><rect x="930.1" y="230.2" width="17.5" height="12.4"/></g>
-          <g class="dn"><rect x="961.5" y="208.5" width="1" height="62.7"/><rect x="953.4" y="221.2" width="17.5" height="37.9"/></g>
-          <g class="dn"><rect x="1008.2" y="220.3" width="1" height="67.1"/><rect x="1000.2" y="234.2" width="17.5" height="35.7"/></g>
-          <g class="dn"><rect x="1031.6" y="240.8" width="1" height="57.0"/><rect x="1023.5" y="255.2" width="17.5" height="25.7"/></g>
+            <g class="up"><rect x="42.8" y="310.7" width="1" height="60.5"/><rect x="34.8" y="330.2" width="17.5" height="24.1"/></g>
+            <g class="dn"><rect x="73.1" y="294.5" width="1" height="69.6"/><rect x="65.1" y="313.5" width="17.5" height="33.1"/></g>
+            <g class="up"><rect x="89.6" y="306.0" width="1" height="64.0"/><rect x="81.5" y="324.7" width="17.5" height="29.8"/></g>
+            <g class="up"><rect x="112.9" y="339.2" width="1" height="58.3"/><rect x="104.9" y="357.6" width="17.5" height="28.2"/></g>
+            <g class="dn"><rect x="143.2" y="327.3" width="1" height="58.9"/><rect x="135.2" y="345.2" width="17.5" height="34.2"/></g>
+            <g class="up"><rect x="159.6" y="383.9" width="1" height="49.2"/><rect x="151.6" y="401.4" width="17.5" height="22.2"/></g>
+            <g class="dn"><rect x="189.9" y="369.2" width="1" height="68.1"/><rect x="181.9" y="386.2" width="17.5" height="37.1"/></g>
+            <g class="dn"><rect x="213.3" y="418.7" width="1" height="48.8"/><rect x="205.3" y="435.2" width="17.5" height="15.5"/></g>
+            <g class="dn"><rect x="236.6" y="401.8" width="1" height="71.8"/><rect x="228.6" y="417.8" width="17.5" height="38.3"/></g>
+            <g class="up"><rect x="253.1" y="424.2" width="1" height="44.9"/><rect x="245.0" y="439.7" width="17.5" height="13.5"/></g>
+            <g class="up"><rect x="276.4" y="402.8" width="1" height="64.9"/><rect x="268.4" y="417.8" width="17.5" height="37.7"/></g>
+            <g class="up"><rect x="299.8" y="386.9" width="1" height="42.2"/><rect x="291.7" y="401.4" width="17.5" height="20.3"/></g>
+            <g class="up"><rect x="323.1" y="365.5" width="1" height="58.0"/><rect x="315.1" y="379.5" width="17.5" height="35.2"/></g>
+            <g class="dn"><rect x="353.4" y="356.0" width="1" height="53.5"/><rect x="345.4" y="369.3" width="17.5" height="26.6"/></g>
+            <g class="up"><rect x="369.9" y="355.7" width="1" height="60.6"/><rect x="361.8" y="368.5" width="17.5" height="31.2"/></g>
+            <g class="up"><rect x="393.2" y="339.9" width="1" height="61.5"/><rect x="385.2" y="352.1" width="17.5" height="31.8"/></g>
+            <g class="up"><rect x="416.6" y="318.6" width="1" height="53.6"/><rect x="408.5" y="330.2" width="17.5" height="25.8"/></g>
+            <g class="dn"><rect x="446.9" y="300.0" width="1" height="59.4"/><rect x="438.8" y="311.0" width="17.5" height="35.7"/></g>
+            <g class="up"><rect x="463.3" y="303.4" width="1" height="37.8"/><rect x="455.3" y="313.8" width="17.5" height="19.5"/></g>
+            <g class="up"><rect x="486.6" y="287.6" width="1" height="55.9"/><rect x="478.6" y="297.4" width="17.5" height="37.8"/></g>
+            <g class="up"><rect x="510.0" y="266.3" width="1" height="34.7"/><rect x="502.0" y="275.5" width="17.5" height="12.5"/></g>
+            <g class="dn"><rect x="540.3" y="245.2" width="1" height="63.1"/><rect x="532.3" y="253.7" width="17.5" height="38.3"/></g>
+            <g class="up"><rect x="556.7" y="251.2" width="1" height="41.8"/><rect x="548.7" y="259.0" width="17.5" height="16.4"/></g>
+            <g class="up"><rect x="580.1" y="229.9" width="1" height="60.5"/><rect x="572.1" y="237.1" width="17.5" height="36.8"/></g>
+            <g class="up"><rect x="603.4" y="208.6" width="1" height="90.0"/><rect x="595.4" y="215.2" width="17.5" height="70.2"/></g>
+            <g class="up"><rect x="626.8" y="172.1" width="1" height="98.6"/><rect x="618.8" y="187.9" width="17.5" height="64.1"/></g>
+            <g class="dn"><rect x="657.1" y="122.7" width="1" height="71.2"/><rect x="649.1" y="139.9" width="17.5" height="37.0"/></g>
+            <g class="up"><rect x="673.5" y="141.9" width="1" height="104.6"/><rect x="665.5" y="160.5" width="17.5" height="58.5"/></g>
+            <g class="dn"><rect x="703.8" y="91.3" width="1" height="126.4"/><rect x="695.8" y="111.2" width="17.5" height="71.2"/></g>
+            <g class="dn"><rect x="727.2" y="154.2" width="1" height="83.1"/><rect x="719.1" y="175.6" width="17.5" height="23.2"/></g>
+            <g class="dn"><rect x="750.5" y="173.6" width="1" height="63.8"/><rect x="742.5" y="183.9" width="17.5" height="36.8"/></g>
+            <g class="dn"><rect x="773.9" y="209.7" width="1" height="41.2"/><rect x="765.9" y="220.5" width="17.5" height="16.6"/></g>
+            <g class="up"><rect x="790.3" y="209.2" width="1" height="58.9"/><rect x="782.3" y="220.7" width="17.5" height="38.2"/></g>
+            <g class="dn"><rect x="820.6" y="218.2" width="1" height="31.6"/><rect x="812.6" y="230.2" width="17.5" height="12.4"/></g>
+            <g class="dn"><rect x="844.0" y="208.5" width="1" height="62.7"/><rect x="835.9" y="221.2" width="17.5" height="37.9"/></g>
+            <g class="up"><rect x="860.4" y="229.3" width="1" height="48.3"/><rect x="852.4" y="242.6" width="17.5" height="19.3"/></g>
+            <g class="dn"><rect x="890.7" y="220.3" width="1" height="67.1"/><rect x="882.7" y="234.2" width="17.5" height="35.7"/></g>
+            <g class="dn"><rect x="914.1" y="240.8" width="1" height="57.0"/><rect x="906.0" y="255.2" width="17.5" height="25.7"/></g>
+            <g class="up"><rect x="930.5" y="249.5" width="1" height="61.0"/><rect x="922.4" y="264.5" width="17.5" height="31.9"/></g>
+            <g class="up"><rect x="953.8" y="232.6" width="1" height="56.3"/><rect x="945.8" y="248.1" width="17.5" height="31.1"/></g>
+            <g class="dn"><rect x="977.5" y="248.1" width="1" height="35.7"/><rect x="969.2" y="248.1" width="17.5" height="32.6"/></g>
+            <g class="dn"><rect x="1000.9" y="274.1" width="1" height="16.4"/><rect x="992.6" y="280.7" width="17.5" height="2.2"/></g>
+            <g class="dn"><rect x="1024.3" y="282.8" width="1" height="33.5"/><rect x="1016.0" y="282.8" width="17.5" height="26.8"/></g>
+            <g class="up"><rect x="1047.7" y="285.3" width="1" height="24.5"/><rect x="1039.4" y="287.8" width="17.5" height="21.9"/></g>
+            <g class="up"><rect x="1071.1" y="271.3" width="1" height="30.3"/><rect x="1062.8" y="286.5" width="17.5" height="1.3"/></g>
+            <g class="dn"><rect x="1094.5" y="285.6" width="1" height="48.9"/><rect x="1086.2" y="286.5" width="17.5" height="39.5"/></g>
+            <g class="dn"><rect x="1117.9" y="326.0" width="1" height="48.8"/><rect x="1109.6" y="326.0" width="17.5" height="46.3"/></g>
+            <g class="dn"><rect x="1141.3" y="367.3" width="1" height="32.6"/><rect x="1133.0" y="372.2" width="17.5" height="25.6"/></g>
+            <g class="dn"><rect x="1164.7" y="397.9" width="1" height="47.8"/><rect x="1156.4" y="397.9" width="17.5" height="39.3"/></g>
+            <g class="up"><rect x="1188.1" y="432.1" width="1" height="15.0"/><rect x="1179.8" y="434.1" width="17.5" height="3.0"/></g>
+            <g class="dn"><rect x="1211.5" y="434.1" width="1" height="25.7"/><rect x="1203.2" y="434.1" width="17.5" height="4.4"/></g>
+            <g class="dn"><rect x="1234.9" y="433.9" width="1" height="17.4"/><rect x="1226.6" y="438.5" width="17.5" height="10.9"/></g>
+            <g class="up"><rect x="1258.3" y="428.6" width="1" height="20.7"/><rect x="1250.0" y="448.3" width="17.5" height="1.1"/></g>
           </g>
           <g class="labels">
-            <line x1="218.5" x2="218.5" y1="284" y2="301" /><text x="199" y="282">BTC · EUR/USD · AAPL</text>
-            <line class="dn" x1="358.5" x2="358.5" y1="380" y2="397" /><text class="dn" x="339" y="377">STOP · 65,090</text>
-            <line x1="521.5" x2="521.5" y1="318" y2="335" /><text x="501" y="289">ENTRY · 66,180</text>
-            <line x1="755.5" x2="755.5" y1="150" y2="167" /><text x="679" y="116">HIGH · 70,220</text>
-            <line class="up" x1="872.5" x2="872.5" y1="152" y2="169" /><text class="up" x="853" y="139">TP · 69,750</text>
-            <line x1="1059.5" x2="1059.5" y1="228" y2="245" /><text x="1050" y="218">CLOSE · 68,940</text>
+            <line x1="101.5" x2="101.5" y1="284" y2="301" /><text x="81.5" y="282">BTC · EUR/USD · XAU/USD</text>
+            <line class="dn" x1="241.5" x2="241.5" y1="380" y2="397" /><text class="dn" x="221.5" y="377">STOP · 65,090</text>
+            <line x1="404.5" x2="404.5" y1="318" y2="335" /><text x="383.5" y="289">ENTRY · 66,180</text>
+            <line x1="638.5" x2="638.5" y1="150" y2="167" /><text x="561.5" y="116">HIGH · 70,220</text>
+            <line class="up" x1="755.5" x2="755.5" y1="152" y2="169" /><text class="up" x="735.5" y="139">TP · 69,750</text>
+            <line x1="942.5" x2="942.5" y1="228" y2="245" /><text x="932.5" y="218">CLOSE · 68,940</text>
+            <line x1="1118.9" x2="1118.9" y1="303" y2="320" /><text x="1098.4" y="299">ENTRY · 66,480</text>
+            <line class="dn" x1="1165.7" x2="1165.7" y1="451.6" y2="468.6" /><text class="dn" x="1145.2" y="482.6">STOP · 65,948</text>
           </g>
           <g class="axes times">
-            <text x="127" y="550">09:00</text><text x="309" y="550">10:00</text><text x="491" y="550">11:00</text>
-            <text x="673" y="550">12:00</text><text x="855" y="550">13:00</text><text x="1037" y="550">14:00</text>
+            <text x="9.5" y="550">09:00</text><text x="191.5" y="550">10:00</text><text x="373.5" y="550">11:00</text>
+            <text x="555.5" y="550">12:00</text><text x="737.5" y="550">13:00</text><text x="919.5" y="550">14:00</text>
+            <text x="1101.5" y="550">15:00</text><text x="1283.5" y="550">16:00</text>
           </g>
-          </g>
-          </g>
-          <g class="axes">
-            <line x1="1348" x2="1359" y1="508" y2="508" /><text x="1364" y="514">64,000</text>
-            <line x1="1348" x2="1359" y1="398" y2="398" /><text x="1364" y="404">66,000</text>
-            <line x1="1348" x2="1359" y1="289" y2="289" /><text x="1364" y="295">68,000</text>
-            <line x1="1348" x2="1359" y1="179" y2="179" /><text x="1364" y="185">70,000</text>
-            <line x1="1348" x2="1359" y1="70" y2="70" /><text x="1364" y="76">72,000</text>
-          </g>
-          <g id="live-price" class="live-price" visibility="hidden">
-            <line x1="0" x2="1348" y1="0" y2="0" />
-            <rect x="1348" y="-10" width="68" height="20" rx="2" />
-            <text x="1382" y="4" text-anchor="middle"></text>
-          </g>
-        </svg>
-      </div>
-    </section>
-
-    <!-- Trust strip -->
-    <section class="trust">
-      <ul class="wrap trust-list">
-        <li><img class="ico" src="assets/icons/paper.svg" alt="" width="24" height="24" />Paper trading available</li>
-        <li><img class="ico" src="assets/icons/live.svg" alt="" width="24" height="24" />Live trading is opt-in</li>
-        <li><img class="ico" src="assets/icons/api.svg" alt="" width="24" height="24" />Trade-only API access</li>
-        <li><img class="ico" src="assets/icons/kill.svg" alt="" width="24" height="24" />Kill switch built in</li>
-      </ul>
-    </section>
+        </g>
+        </g>
+        <g class="axes">
+          <line x1="1348" x2="1359" y1="508" y2="508" /><text x="1364" y="514">64,000</text>
+          <line x1="1348" x2="1359" y1="398" y2="398" /><text x="1364" y="404">66,000</text>
+          <line x1="1348" x2="1359" y1="289" y2="289" /><text x="1364" y="295">68,000</text>
+          <line x1="1348" x2="1359" y1="179" y2="179" /><text x="1364" y="185">70,000</text>
+          <line x1="1348" x2="1359" y1="70" y2="70" /><text x="1364" y="76">72,000</text>
+        </g>
+        <g id="live-price" class="live-price" visibility="hidden">
+          <line x1="0" x2="1348" y1="0" y2="0" />
+          <rect x="1348" y="-10" width="68" height="20" rx="2" />
+          <text x="1382" y="4" text-anchor="middle"></text>
+        </g>
+      </svg>
+      <div class="live-badge"><img src="/icons/dot-live.svg" alt="" width="7" height="7" />LIVE · PAPER MODE · BTC/USDT 15M</div>
+    </div>
 
     <!-- Problem -->
-    <section class="section">
+    <section class="section problem">
       <div class="wrap">
         <header class="sec-head">
           <p class="eyebrow">THE PROBLEM</p>
-          <h2>Automated trading shouldn't mean losing sight of your money.</h2>
+          <h2 class="w-820">Automated trading shouldn’t mean losing sight of your money.</h2>
         </header>
-        <div class="problems">
-          <article>
-            <img class="ico" src="assets/icons/emotion.svg" alt="" width="40" height="40" />
+        <div class="grid-4">
+          <article class="card">
+            <span class="icon-box"><img src="/icons/brain.svg" alt="" width="20" height="20" /></span>
             <h3>Emotional decisions</h3>
-            <p>Fear and excitement make it hard to follow your own plan. Even good strategies suffer when you are tired or reacting too fast.</p>
+            <p>Fear and excitement make it hard to follow your own plan, especially when you’re tired or reacting fast.</p>
           </article>
-          <article>
-            <img class="ico" src="assets/icons/box.svg" alt="" width="40" height="40" />
-            <h3>Black-box complexity</h3>
-            <p>Many automated tools do not explain why they trade. When something goes wrong, it is hard to know what happened or what to trust.</p>
+          <article class="card">
+            <span class="icon-box"><img src="/icons/box.svg" alt="" width="20" height="20" /></span>
+            <h3>Black-box bots</h3>
+            <p>Most tools never explain why they trade. When something goes wrong, you can’t tell what happened.</p>
           </article>
-          <article>
-            <img class="ico" src="assets/icons/risk.svg" alt="" width="40" height="40" />
+          <article class="card">
+            <span class="icon-box"><img src="/icons/moon-sm.svg" alt="" width="20" height="20" /></span>
             <h3>Unwatched risk</h3>
-            <p>Crypto never closes, so a bot that isn't actively guarded can lose ground while you sleep.</p>
+            <p>Crypto never closes. A bot without hard limits can lose ground while you sleep.</p>
+          </article>
+          <article class="card">
+            <span class="icon-box"><img src="/icons/lock.svg" alt="" width="20" height="20" /></span>
+            <h3>Apps that hold your money</h3>
+            <p>Platforms that take deposits for an “AI” to trade can disappear with them. We never touch your funds.</p>
           </article>
         </div>
-        <p class="rule-note">Most automation tries to replace judgment with complexity. Novastrum is designed to scale your judgment, not bypass it.</p>
+        <p class="statement">Most automation tries to replace your judgment. Novastrum is built to scale it, with rules you can read and limits it can’t break.</p>
       </div>
     </section>
 
     <!-- How it works -->
-    <section class="section" id="how">
+    <section class="section alt" id="how">
       <div class="wrap">
         <header class="sec-head">
           <p class="eyebrow">HOW IT WORKS</p>
-          <h2>From paper trading to live, on your terms.</h2>
+          <h2 class="w-760">From paper trading to live, on your terms.</h2>
+          <p class="sec-sub">Three steps. You can stop at any of them and nothing happens to your money.</p>
         </header>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-copy">
-              <span class="step-num">01</span>
-              <h3>Choose your market and mode</h3>
-              <p>Pick your market — forex or crypto — and start in paper mode with real prices and no money at risk. Switch to live trading only after you feel confident in the results.</p>
-              <p class="info"><img src="assets/icons/info.svg" alt="" width="16" height="16" />Paper performance does not guarantee live performance</p>
+        <div class="grid-3 steps">
+          <article class="card step">
+            <p class="step-num">01</p>
+            <h3>Connect your own account</h3>
+            <p>Link your broker through MetaTrader 5 or an exchange with a trade-only API key. Your money stays where it is.</p>
+            <div class="mock">
+              <div class="acct"><span class="acct-tag green">EX</span><span class="acct-name">Exness · MT5</span><span class="pill pill-green"><img src="/icons/dot-teal.svg" alt="" width="6" height="6" />Connected</span></div>
+              <div class="acct"><span class="acct-tag amber">BN</span><span class="acct-name">Binance · API</span><span class="pill pill-green"><img src="/icons/dot-teal.svg" alt="" width="6" height="6" />Trade only</span></div>
+              <p class="mock-note"><img src="/icons/lock-teal.svg" alt="" width="14" height="14" />Withdrawals always off</p>
             </div>
-            <div class="card">
-              <div class="card-head"><span>Account mode</span><span class="mono light">Paper</span></div>
-              <div class="modes">
-                <div class="mode selected"><div><strong>Paper trading</strong><span>Real prices, no money at risk</span></div><i></i></div>
-                <div class="mode"><div><strong>Live trading</strong><span>Requires identity verification and a broker or exchange connection</span></div><i></i></div>
-              </div>
-              <p class="card-foot">Email verification happens at signup. Identity verification is a separate step, required only for live trading.</p>
+          </article>
+          <article class="card step">
+            <p class="step-num">02</p>
+            <h3>Set your guardrails</h3>
+            <p>Pick a risk profile. Novastrum will never exceed it, in paper or live mode. Raising risk takes 24 hours; lowering it is instant.</p>
+            <div class="mock mock-limits">
+              <div class="limit"><span>Risk per trade</span><b>1.0%</b><i class="bar"><i style="width: 46%"></i></i></div>
+              <div class="limit"><span>Daily loss limit</span><b>3.0%</b><i class="bar amber"><i style="width: 56%"></i></i></div>
+              <p class="mock-mono">Hard cap: 2% per trade</p>
             </div>
-          </div>
-
-          <div class="step reverse">
-            <div class="step-copy">
-              <span class="step-num">02</span>
-              <h3>Set your guardrails</h3>
-              <p>Choose the limits you want to follow. Novastrum keeps those rules in place so you do not have to second-guess yourself during fast markets.</p>
-            </div>
-            <div class="card">
-              <div class="card-head"><span>Your limits</span><span>Edit</span></div>
-              <div class="limits">
-                <div class="limit"><span>Position size per trade</span><b class="mono">2.0%</b><i style="--w:20%"></i></div>
-                <div class="limit"><span>Daily loss limit</span><b class="mono">5.0%</b><i style="--w:50%"></i></div>
-                <div class="limit"><span>Stop distance from entry</span><b class="mono">1.5%</b><i style="--w:15%"></i></div>
-              </div>
-              <p class="card-foot">Novastrum will not exceed these, in paper or live mode.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-copy">
-              <span class="step-num">03</span>
-              <h3>Monitor with clarity</h3>
-              <p>Every trade comes with a simple explanation. You can see what happened, why it happened, and whether the bot stayed inside your limits.</p>
-            </div>
-            <div class="card">
-              <div class="card-head"><span>Alerts</span><span class="mono">Today</span></div>
-              <ul class="alerts">
-                <li><time class="mono">09:14</time>Position opened on BTC/USDT at 67,215</li>
-                <li><time class="mono">09:28</time>AAPL position closed at 231.15 (+1.2%)</li>
-                <li><time class="mono">11:02</time>Daily drawdown at 2.1% of your 5% limit</li>
-                <li><time class="mono">13:47</time>Position opened on EUR/USD at 1.0842</li>
-              </ul>
-              <p class="card-foot">Sent by push or SMS. You choose which.</p>
-            </div>
-          </div>
+          </article>
+          <article class="card step">
+            <p class="step-num">03</p>
+            <h3>Watch every decision</h3>
+            <p>Each trade comes with a plain-English reason. Go live only when the paper results meet your standard.</p>
+            <ol class="mock log">
+              <li><time>09:14</time><span>Opened EUR/USD buy · 1H order block</span></li>
+              <li><time>11:02</time><span class="amber">Daily loss at 0.4% of your 3% limit</span></li>
+              <li><time>13:00</time><span class="blue">News Shield paused new trades · US CPI</span></li>
+              <li><time>13:47</time><span class="green">Closed EUR/USD · take profit hit</span></li>
+            </ol>
+          </article>
         </div>
+        <p class="fine-note"><img src="/icons/eye.svg" alt="" width="16" height="16" />Paper results don’t guarantee live results. You decide when you’re ready.</p>
       </div>
     </section>
 
-    <!-- Funding -->
-    <section class="section">
+    <!-- Strategy -->
+    <section class="section" id="strategy">
       <div class="wrap">
-        <header class="sec-head">
-          <p class="eyebrow eyebrow-lg">FUNDING</p>
-          <h2 class="h2-strong">Move money in. Move money out.</h2>
-          <p class="sec-sub">Novastrum trades inside your account. Funding and withdrawing stay entirely yours to control.</p>
+        <header class="sec-head split">
+          <div>
+            <p class="eyebrow">ONE CLEAR STRATEGY</p>
+            <h2 class="w-620">Four checks before every trade.</h2>
+          </div>
+          <p class="sec-sub">The Novastrum Core Strategy reads the market top-down. If any check fails, the bot waits. No trade is also a decision.</p>
         </header>
-        <div class="world" data-world>
-          <svg class="world-map" viewBox="0 0 1216 676" role="img" aria-label="World map. Hover or tap a country to see its flag.">
-            <defs>
-              <filter id="country-noise" x="0%" y="0%" width="100%" height="100%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" result="noise" />
-                <feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.15 0" result="subtle" />
-                <feBlend in="SourceGraphic" in2="subtle" mode="overlay" result="blend" />
-                <feComposite in="blend" in2="SourceGraphic" operator="in" />
-              </filter>
-            </defs>
-            <g class="countries" filter="url(#country-noise)"></g>
-            <g class="lit"></g>
-          </svg>
-          <div class="world-tip" hidden><img alt="" width="20" height="15" /><span></span></div>
-        </div>
-        <div class="funding">
-          <article class="card fund-card">
-            <span class="icon-box"><img class="ico" src="assets/icons/arrow-down.svg" alt="" width="24" height="24" /></span>
-            <h3>Funding your account</h3>
-            <p>Bring fiat or crypto in through your broker or exchange's own on-ramp — bank transfer, card, or a direct deposit. Novastrum never touches this step; it only starts trading once your account is funded.</p>
-          </article>
-          <article class="card fund-card">
-            <span class="icon-box"><img class="ico" src="assets/icons/arrow-up.svg" alt="" width="24" height="24" /></span>
-            <h3>Withdrawing your funds</h3>
-            <p>Withdrawals happen on your broker or exchange, on your schedule. Novastrum's API access is trade-only — it can never move funds out on its own.</p>
-          </article>
+        <ol class="checks">
+          <li class="check">
+            <div class="check-top"><span class="check-num">1</span><span class="pill pill-green"><img src="/icons/dot-teal.svg" alt="" width="6" height="6" />Bullish</span></div>
+            <h3>Daily bias</h3>
+            <p>The daily chart sets direction. Higher highs: buys only. Lower lows: sells only.</p>
+          </li>
+          <li class="check active">
+            <div class="check-top"><span class="check-num">2</span><span class="pill pill-amber"><img src="/icons/dot-amber.svg" alt="" width="6" height="6" />Watching</span></div>
+            <h3>4H liquidity sweep</h3>
+            <p>Price runs past a recent 4-hour high or low, takes the stops resting there, and turns back.</p>
+          </li>
+          <li class="check">
+            <div class="check-top"><span class="check-num">3</span><span class="pill pill-grey"><img src="/icons/dot-grey.svg" alt="" width="6" height="6" />Waiting</span></div>
+            <h3>1H order block</h3>
+            <p>The bot marks the last opposing candle before the move and waits for a return to it.</p>
+          </li>
+          <li class="check">
+            <div class="check-top"><span class="check-num">4</span><span class="pill pill-grey"><img src="/icons/dot-grey.svg" alt="" width="6" height="6" />Waiting</span></div>
+            <h3>15-minute entry</h3>
+            <p>A shift on the 15-minute chart confirms it. The bot enters with its stop already set.</p>
+          </li>
+        </ol>
+        <div class="grid-3 rules">
+          <div class="rule">
+            <span class="icon-box sm"><img src="/icons/sliders.svg" alt="" width="18" height="18" /></span>
+            <div><h3>Sized before it’s placed</h3><p>Every position is sized to your risk profile, with the stop loss set at entry.</p></div>
+          </div>
+          <div class="rule">
+            <span class="icon-box sm"><img src="/icons/shield-amber.svg" alt="" width="18" height="18" /></span>
+            <div><h3>Stays out around big news</h3><p>News Shield pauses new trades 30 minutes before and after high-impact events.</p></div>
+          </div>
+          <div class="rule">
+            <span class="icon-box sm"><img src="/icons/check-teal.svg" alt="" width="18" height="18" /></span>
+            <div><h3>Six markets, nothing else</h3><p>EUR/USD, GBP/USD, USD/JPY, gold, BTC and ETH. Nothing exotic.</p></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Transparency -->
-    <section class="section" id="risk">
+    <section class="section alt" id="safety">
       <div class="wrap">
         <header class="sec-head">
           <p class="eyebrow">TRANSPARENCY</p>
-          <h2>See what the bot is doing, and why.</h2>
+          <h2 class="w-760">See what the bot is doing, and why.</h2>
+          <p class="sec-sub">Every trade is explained in plain English. Your limits, exposure and stop button are always one glance away.</p>
         </header>
-        <div class="bento">
-          <article class="card cell-a">
-            <p class="cell-label">WHY THE BOT ENTERED</p>
-            <div class="kv head"><span class="mono light">BTC/USDT · 15M</span><span class="pill">Paper</span></div>
-            <hr />
-            <div class="kv"><span>Signal</span><span class="mono light">Momentum above 20-period average</span></div>
-            <div class="kv"><span>Entered at</span><span class="mono light">67,215</span></div>
-            <div class="kv"><span>Position size</span><span class="mono light">2.0% of balance</span></div>
-            <div class="kv"><span>Stop set at</span><span class="mono light">66,207</span></div>
-            <hr />
-            <p class="cell-body">Price closed above the 20-period average with rising volume. Novastrum opened a position sized to your 2% limit and placed the stop 1.5% below entry, as configured.</p>
-          </article>
-
-          <article class="card cell-b">
-            <p class="cell-label">CURRENT RISK EXPOSURE</p>
-            <p class="stat"><span class="mono light">4.2%</span> of balance in open trades</p>
-            <div class="track tall"><i style="--w:24%"></i></div>
-            <p class="small">2 open positions</p>
-          </article>
-
-          <article class="card cell-c">
-            <p class="cell-label">DAILY DRAWDOWN</p>
-            <p class="mono big dn">-2.1%</p>
-            <p class="small">Today, against your 5% limit</p>
-            <div class="track"><i class="red" style="--w:42%"></i></div>
-            <p class="small">Bot stops automatically at 5%.</p>
-          </article>
-
-          <article class="card cell-d">
-            <p class="cell-label">EMERGENCY STOP</p>
-            <p class="light">Halt all activity instantly.</p>
-            <button type="button" class="stop-btn" data-stop>Stop all trading</button>
-            <p class="small">Closes nothing automatically. You decide what happens next.</p>
-          </article>
-
-          <article class="card cell-e">
-            <p class="cell-label">WHY IT EXITED OR PAUSED</p>
-            <div class="exit">
-              <div class="kv"><span class="mono light">BTC/USDT</span><span class="mono dn">-1.4%</span></div>
-              <p class="small">Stop limit reached at 66,207. Trend reversed 14 minutes after entry.</p>
+        <div class="transparency">
+          <article class="card why" id="why" data-why tabindex="-1">
+            <div class="why-top">
+              <p class="eyebrow">WHY THE BOT ENTERED</p>
+              <span class="pill pill-amber"><img src="/icons/dot-amber.svg" alt="" width="6" height="6" />Paper</span>
             </div>
-            <hr />
-            <div class="exit">
-              <div class="kv"><span class="mono light">EUR/USD</span><span class="mono up">+0.9%</span></div>
-              <p class="small">Take-profit target hit at 1.0871. Closed as configured.</p>
-            </div>
+            <h3 data-why-title>EUR/USD · Buy · 15M</h3>
+            <dl class="kv" data-why-rows>
+              <div><dt>Daily bias</dt><dd class="green">Bullish</dd></div>
+              <div><dt>4H sweep</dt><dd class="green">Took 1.0830</dd></div>
+              <div><dt>1H order block</dt><dd class="green">1.0840 – 1.0845</dd></div>
+              <div><dt>Entry</dt><dd>1.08426</dd></div>
+              <div><dt>Size</dt><dd>1.0% of balance</dd></div>
+              <div><dt>Stop loss</dt><dd class="red">1.08210</dd></div>
+            </dl>
+            <p class="why-text" data-why-text>The daily chart pointed up, so the bot only looked for buys. Price swept below a 4-hour low and snapped back. It bought at a 1-hour order block once the 15-minute chart confirmed, with the stop just under the sweep.</p>
           </article>
+          <div class="side">
+            <article class="card stat">
+              <p class="eyebrow">CURRENT RISK EXPOSURE</p>
+              <p class="stat-big">2.0% of balance</p>
+              <p class="stat-sub">2 open trades · max 3% at once</p>
+            </article>
+            <article class="card stat">
+              <p class="eyebrow">DAILY DRAWDOWN</p>
+              <div class="stat-row"><p class="stat-big amber">−0.4%</p><p class="stat-sub">of your 3% limit</p></div>
+              <i class="bar amber" role="img" aria-label="0.4% of the 3% daily limit used"><i style="width: 13.3%"></i></i>
+              <p class="stat-note">The bot stops for the day at 3%.</p>
+            </article>
+            <article class="card stop-card" data-stop-card>
+              <p class="eyebrow red">EMERGENCY STOP</p>
+              <button type="button" class="stop-btn" data-stop>
+                <span class="stop-fill" aria-hidden="true"></span>
+                <img src="/icons/stop-red.svg" alt="" width="18" height="18" />
+                <span data-stop-label>Hold to stop all trading</span>
+              </button>
+              <p class="stat-note" data-stop-note>Stops new trades instantly. Open trades keep their stop loss. You decide what happens next.</p>
+            </article>
+          </div>
+        </div>
+        <div class="card history">
+          <table>
+            <thead>
+              <tr><th>MARKET</th><th>SETUP</th><th class="c-num">ENTRY</th><th class="c-num">EXIT</th><th class="c-res">RESULT</th><th class="c-why">EXPLANATION</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="mkt">EUR/USD</td><td>Buy · 1H order block</td><td class="c-num">1.08426</td><td class="c-num">1.08860</td><td class="c-res green">+0.9%</td><td class="c-why"><button type="button" class="link" data-why-trade="eurusd">Why this trade →</button></td></tr>
+              <tr><td class="mkt">BTC/USDT</td><td>Buy · 4H sweep</td><td class="c-num">67,215</td><td class="c-num">66,207</td><td class="c-res red">−1.4%</td><td class="c-why"><button type="button" class="link" data-why-trade="btcusdt">Why this trade →</button></td></tr>
+              <tr><td class="mkt">XAU/USD</td><td>Sell · 15m entry</td><td class="c-num">2,391.20</td><td class="c-num">2,372.80</td><td class="c-res green">+1.1%</td><td class="c-why"><button type="button" class="link" data-why-trade="xauusd">Why this trade →</button></td></tr>
+              <tr><td class="mkt">ETH/USDT</td><td>Buy · 1H order block</td><td class="c-num">3,180</td><td class="c-num">3,124</td><td class="c-res red">−1.1%</td><td class="c-why"><button type="button" class="link" data-why-trade="ethusdt">Why this trade →</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-          <article class="card cell-f">
-            <p class="cell-label">FULL TRADE HISTORY</p>
-            <div class="table-scroll">
-              <table>
-                <thead><tr><th>Instrument</th><th>Entry</th><th>Exit</th><th>Result</th></tr></thead>
-                <tbody>
-                  <tr><td>BTC/USDT</td><td>67,215</td><td>66,207</td><td class="dn">-1.4%</td></tr>
-                  <tr><td>EUR/USD</td><td>1.0842</td><td>1.0871</td><td class="up">+0.9%</td></tr>
-                  <tr><td>AAPL</td><td>228.40</td><td>231.15</td><td class="up">+1.2%</td></tr>
-                  <tr><td>ETH/USDT</td><td>3,180</td><td>3,124</td><td class="dn">-1.1%</td></tr>
-                </tbody>
-              </table>
+    <!-- Sessions map -->
+    <section class="section">
+      <div class="wrap">
+        <header class="sec-head split">
+          <div>
+            <p class="eyebrow">BUILT FOR TRADERS EVERYWHERE</p>
+            <h2 class="w-640">Your money stays in your account. Wherever you are.</h2>
+          </div>
+          <p class="sec-sub">Novastrum trades inside the broker or exchange account you already have. It watches the London, New York and Tokyo sessions for you, and crypto around the clock.</p>
+        </header>
+        <div class="world-wrap">
+          <div class="world" data-world>
+            <svg class="world-map" viewBox="0 0 1216 676" role="img" aria-label="World map with the London, New York and Tokyo trading sessions. Hover or tap a country to see its flag.">
+              <defs></defs>
+              <g class="countries"></g>
+              <g class="lit"></g>
+            </svg>
+            <div class="pin pin-left" style="left: 33.72%; top: 47.63%">
+              <img class="halo" src="/icons/halo-blue.svg" alt="" width="28" height="28" /><img class="dot" src="/icons/pin-blue.svg" alt="" width="10" height="10" />
+              <span class="pin-label"><b>New York</b><small>13:00 – 22:00 GMT</small></span>
             </div>
-            <p class="small">Every trade, exportable.</p>
+            <div class="pin" style="left: 49.75%; top: 45.12%">
+              <img class="halo" src="/icons/halo-blue.svg" alt="" width="28" height="28" /><img class="dot" src="/icons/pin-blue.svg" alt="" width="10" height="10" />
+              <span class="pin-label"><b>London</b><small>08:00 – 17:00 GMT</small></span>
+            </div>
+            <div class="pin" style="left: 83.22%; top: 54.44%">
+              <img class="halo" src="/icons/halo-blue.svg" alt="" width="28" height="28" /><img class="dot" src="/icons/pin-blue.svg" alt="" width="10" height="10" />
+              <span class="pin-label"><b>Tokyo</b><small>00:00 – 09:00 GMT</small></span>
+            </div>
+            <div class="pin" style="left: 51.97%; top: 67.75%">
+              <img class="halo" src="/icons/halo-teal.svg" alt="" width="28" height="28" /><img class="dot" src="/icons/pin-teal.svg" alt="" width="10" height="10" />
+              <span class="pin-label"><b>Lagos · you</b><small>Alerts on Telegram &amp; WhatsApp</small></span>
+            </div>
+            <div class="world-tip" hidden><img alt="" width="20" height="15" /><span></span></div>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card point">
+            <span class="icon-box sm"><img src="/icons/lock-green.svg" alt="" width="18" height="18" /></span>
+            <h3>Never holds your money</h3>
+            <p>Novastrum can’t deposit, withdraw or move funds. It only places and closes trades.</p>
+          </article>
+          <article class="card point">
+            <span class="icon-box sm"><img src="/icons/link-blue.svg" alt="" width="18" height="18" /></span>
+            <h3>Trade-only access</h3>
+            <p>MetaTrader 5 brokers or exchange API keys with withdrawals switched off. Keys that allow withdrawals are rejected.</p>
+          </article>
+          <article class="card point">
+            <span class="icon-box sm"><img src="/icons/clock-amber.svg" alt="" width="18" height="18" /></span>
+            <h3>Watches the sessions</h3>
+            <p>Forex trades during the main sessions. Crypto runs 24/7 with wider safety margins.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- Comparison -->
-    <section class="section">
+    <section class="section alt">
       <div class="wrap">
-        <h2>Automation should never mean giving up control.</h2>
-        <div class="compare">
-          <div class="compare-col good">
-            <h3>WITH NOVASTRUM</h3>
-            <ul>
-              <li>User chooses paper or live mode explicitly</li>
-              <li>Live trading is strictly opt-in and requires verification</li>
-              <li>API scopes restricted strictly to trade-only capabilities</li>
-              <li>User-defined hard limits and emergency stop controls</li>
-              <li>System reporting focuses on drawdown and volatility, not just ROI</li>
-            </ul>
-          </div>
-          <div class="compare-col bad">
-            <h3>TYPICAL TRADING BOTS</h3>
-            <ul>
-              <li>Unclear algorithmic logic and opaque trade entries</li>
-              <li>Accounts set to live status immediately by default</li>
-              <li>Requires broad administrative or withdrawal API scopes</li>
-              <li>Fixed risk parameters controlled solely by the platform</li>
-              <li>Promotes headline return numbers while hiding severe drawdowns</li>
-            </ul>
-          </div>
-        </div>
-        <p class="disclosure">Risk disclosure: Trading carries real risk, including losing money. Risk limits and paper trading reduce that risk but do not remove it. Review your settings carefully before trading with real funds.</p>
-      </div>
-    </section>
-
-    <!-- Who it is not for -->
-    <section class="section">
-      <div class="narrow">
-        <header class="not-head">
-          <p class="cell-label">WHO IT IS NOT FOR</p>
-          <h2 class="h2-strong">Novastrum is not for everyone.</h2>
+        <header class="sec-head">
+          <p class="eyebrow">WHY NOVASTRUM</p>
+          <h2 class="w-760">Automation should never mean giving up control.</h2>
         </header>
-        <div class="exclusions">
-          <div>
-            <h3>If you want guaranteed returns.</h3>
-            <p>No automated system can promise a profit, and any platform that does is telling you something untrue. Novastrum shows you what it did and why. It does not forecast what it will earn.</p>
-          </div>
-          <div>
-            <h3>If you want to copy someone else's trades.</h3>
-            <p>Copy trading means trusting a stranger's judgment without seeing it. Novastrum runs rules you can read and change. If you do not want to understand the strategy, this is the wrong tool.</p>
-          </div>
-          <div>
-            <h3>If you have never placed a trade manually.</h3>
-            <p>Automation makes an existing approach consistent. It does not supply one. Learn to trade first, then decide whether automating it is worth doing.</p>
-          </div>
+        <div class="grid-2 compare">
+          <article class="card compare-col good">
+            <h3><span class="good-ico"><img src="/icons/check-blue.svg" alt="" width="15" height="15" /></span>With Novastrum</h3>
+            <ul>
+              <li><img src="/icons/check-row.svg" alt="" width="18" height="18" />You choose paper or live, and live is always opt-in</li>
+              <li><img src="/icons/check-row.svg" alt="" width="18" height="18" />Trade-only access. Your broker holds your money</li>
+              <li><img src="/icons/check-row.svg" alt="" width="18" height="18" />1% per trade and 3% a day by default, 2% hard cap</li>
+              <li><img src="/icons/check-row.svg" alt="" width="18" height="18" />Every trade explained in plain English</li>
+              <li><img src="/icons/check-row.svg" alt="" width="18" height="18" />Honest track record, losing months included</li>
+            </ul>
+          </article>
+          <article class="card compare-col bad">
+            <h3>Typical trading bots</h3>
+            <ul>
+              <li><img src="/icons/x-red.svg" alt="" width="18" height="18" />Accounts go live straight away</li>
+              <li><img src="/icons/x-red.svg" alt="" width="18" height="18" />Ask you to deposit into their wallet</li>
+              <li><img src="/icons/x-red.svg" alt="" width="18" height="18" />Fixed risk settings you can’t see or change</li>
+              <li><img src="/icons/x-red.svg" alt="" width="18" height="18" />No reason given for any trade</li>
+              <li><img src="/icons/x-red.svg" alt="" width="18" height="18" />Headline returns, hidden drawdowns</li>
+            </ul>
+          </article>
         </div>
-        <p class="not-close">If none of those describe you, start in paper mode and judge it on what it actually does.</p>
       </div>
     </section>
 
-    <!-- Join -->
-    <section class="section join">
-      <div class="wrap join-inner">
-        <div>
-          <h2>Join the first group shaping Novastrum.</h2>
-          <ul class="dash-list">
-            <li>Early access to paper trading</li>
-            <li>Product updates and research invitations</li>
-            <li>A say in which controls and reports we build</li>
-            <li>Priority for live trading when it opens</li>
-          </ul>
+    <!-- Track record -->
+    <section class="section" id="track-record">
+      <div class="wrap">
+        <header class="sec-head split top">
+          <div>
+            <p class="eyebrow">TRACK RECORD</p>
+            <h2 class="w-640">We’ll show every month. Including the bad ones.</h2>
+          </div>
+          <p class="sec-sub">Results will come from real broker statements, published monthly and checked before they go up. No win rates, no cherry-picked screenshots.</p>
+        </header>
+        <div class="card returns">
+          <div class="returns-top">
+            <h3>Monthly return · example layout</h3>
+            <span class="pill pill-amber"><img src="/icons/dot-amber.svg" alt="" width="6" height="6" />Publishes after early access</span>
+          </div>
+          <div class="bars" role="img" aria-label="Example layout of a monthly returns chart. Illustration only, not real results.">
+            <div style="--h: 64px"><i></i><span>Nov</span></div>
+            <div style="--h: 32px"><i></i><span>Dec</span></div>
+            <div class="neg" style="--h: 36px"><i></i><span>Jan</span></div>
+            <div style="--h: 84px"><i></i><span>Feb</span></div>
+            <div style="--h: 24px"><i></i><span>Mar</span></div>
+            <div class="neg" style="--h: 16px"><i></i><span>Apr</span></div>
+            <div style="--h: 56px"><i></i><span>May</span></div>
+            <div style="--h: 76px"><i></i><span>Jun</span></div>
+            <div class="neg" style="--h: 52px"><i></i><span>Jul</span></div>
+            <div style="--h: 36px"><i></i><span>Aug</span></div>
+            <div style="--h: 20px"><i></i><span>Sep</span></div>
+            <div style="--h: 48px"><i></i><span>Oct</span></div>
+          </div>
+          <p class="stat-note">Illustration only. Real figures appear here once live accounts have enough history. Past results never guarantee future returns.</p>
         </div>
-        <div class="join-form">
-          <p>Join the waitlist for early access and a say in how Novastrum works.</p>
-          <form class="email-form" data-form>
-            <input type="email" required placeholder="Enter your email" aria-label="Email address" />
-            <button class="btn" type="submit">Join the waitlist</button>
+      </div>
+    </section>
+
+    <!-- Not for everyone -->
+    <section class="section alt">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">WHO IT’S NOT FOR</p>
+          <h2 class="w-760">Novastrum is not for everyone.</h2>
+          <p class="sec-sub">If none of these describe you, start in paper mode and judge it on what it actually does.</p>
+        </header>
+        <div class="grid-3">
+          <article class="card point">
+            <span class="x-badge"><img src="/icons/x-sm-red.svg" alt="" width="15" height="15" /></span>
+            <h3>If you want guaranteed returns</h3>
+            <p>No automated system can promise a profit. Anyone who does is not telling you the truth.</p>
+          </article>
+          <article class="card point">
+            <span class="x-badge"><img src="/icons/x-sm-red.svg" alt="" width="15" height="15" /></span>
+            <h3>If you want to copy a stranger’s trades</h3>
+            <p>Novastrum runs one strategy you can read and limits you set. You can always see why.</p>
+          </article>
+          <article class="card point">
+            <span class="x-badge"><img src="/icons/x-sm-red.svg" alt="" width="15" height="15" /></span>
+            <h3>If you’ve never placed a trade yourself</h3>
+            <p>Automation makes a good approach consistent. It doesn’t replace learning how markets work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section class="section waitlist" id="waitlist">
+      <div class="wrap">
+        <div class="wl-panel">
+          <div class="wl-left">
+            <span class="pill pill-green"><img src="/icons/dot-teal.svg" alt="" width="6" height="6" /><span class="hide-sm">Early access · rolling invites</span><span class="show-sm">Rolling invites</span></span>
+            <h2>Join the first group shaping Novastrum.</h2>
+            <p class="sec-sub hide-sm">Tell us a little about how you trade. We invite people in small groups so we can listen properly.</p>
+            <ul class="benefits hide-sm">
+              <li><span class="b-ico"><img src="/icons/b-play.svg" alt="" width="17" height="17" /></span><div><b>Early paper trading</b><span>Real prices, no money at risk, from day one.</span></div></li>
+              <li><span class="b-ico"><img src="/icons/b-star.svg" alt="" width="17" height="17" /></span><div><b>Priority for live trading</b><span>First in line when live trading opens.</span></div></li>
+              <li><span class="b-ico"><img src="/icons/b-chat.svg" alt="" width="17" height="17" /></span><div><b>A say in what we build</b><span>Short research calls and feature votes.</span></div></li>
+              <li><span class="b-ico"><img src="/icons/b-bell.svg" alt="" width="17" height="17" /></span><div><b>Honest updates</b><span>Roughly twice a month. Unsubscribe any time.</span></div></li>
+            </ul>
+          </div>
+          <form class="wl-form" data-waitlist-form novalidate>
+            <div class="wl-form-top">
+              <h3>Request early access</h3>
+              <span class="mono-dim">Takes 30 seconds</span>
+            </div>
+            <div class="field-row">
+              <label class="field"><span>First name</span><input name="first_name" autocomplete="given-name" placeholder="Your first name" required /></label>
+              <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required /></label>
+            </div>
+            <div class="field-row">
+              <label class="field"><span>Country</span>
+                <span class="select">
+                  <select name="country" autocomplete="country-name">
+                    <option>Afghanistan</option>
+                    <option>Albania</option>
+                    <option>Algeria</option>
+                    <option>Angola</option>
+                    <option>Argentina</option>
+                    <option>Armenia</option>
+                    <option>Australia</option>
+                    <option>Austria</option>
+                    <option>Azerbaijan</option>
+                    <option>Bahamas</option>
+                    <option>Bangladesh</option>
+                    <option>Belarus</option>
+                    <option>Belgium</option>
+                    <option>Belize</option>
+                    <option>Benin</option>
+                    <option>Bhutan</option>
+                    <option>Bolivia</option>
+                    <option>Bosnia and Herz.</option>
+                    <option>Botswana</option>
+                    <option>Brazil</option>
+                    <option>Brunei</option>
+                    <option>Bulgaria</option>
+                    <option>Burkina Faso</option>
+                    <option>Burundi</option>
+                    <option>Cambodia</option>
+                    <option>Cameroon</option>
+                    <option>Canada</option>
+                    <option>Central African Rep.</option>
+                    <option>Chad</option>
+                    <option>Chile</option>
+                    <option>China</option>
+                    <option>Colombia</option>
+                    <option>Congo</option>
+                    <option>Costa Rica</option>
+                    <option>Croatia</option>
+                    <option>Cuba</option>
+                    <option>Cyprus</option>
+                    <option>Czechia</option>
+                    <option>Côte d&#x27;Ivoire</option>
+                    <option>Dem. Rep. Congo</option>
+                    <option>Denmark</option>
+                    <option>Djibouti</option>
+                    <option>Dominican Rep.</option>
+                    <option>Ecuador</option>
+                    <option>Egypt</option>
+                    <option>El Salvador</option>
+                    <option>Eq. Guinea</option>
+                    <option>Eritrea</option>
+                    <option>Estonia</option>
+                    <option>eSwatini</option>
+                    <option>Ethiopia</option>
+                    <option>Falkland Is.</option>
+                    <option>Fiji</option>
+                    <option>Finland</option>
+                    <option>Fr. S. Antarctic Lands</option>
+                    <option>France</option>
+                    <option>Gabon</option>
+                    <option>Gambia</option>
+                    <option>Georgia</option>
+                    <option>Germany</option>
+                    <option>Ghana</option>
+                    <option>Greece</option>
+                    <option>Greenland</option>
+                    <option>Guatemala</option>
+                    <option>Guinea</option>
+                    <option>Guinea-Bissau</option>
+                    <option>Guyana</option>
+                    <option>Haiti</option>
+                    <option>Honduras</option>
+                    <option>Hungary</option>
+                    <option>Iceland</option>
+                    <option>India</option>
+                    <option>Indonesia</option>
+                    <option>Iran</option>
+                    <option>Iraq</option>
+                    <option>Ireland</option>
+                    <option>Israel</option>
+                    <option>Italy</option>
+                    <option>Jamaica</option>
+                    <option>Japan</option>
+                    <option>Jordan</option>
+                    <option>Kazakhstan</option>
+                    <option>Kenya</option>
+                    <option>Kosovo</option>
+                    <option>Kuwait</option>
+                    <option>Kyrgyzstan</option>
+                    <option>Laos</option>
+                    <option>Latvia</option>
+                    <option>Lebanon</option>
+                    <option>Lesotho</option>
+                    <option>Liberia</option>
+                    <option>Libya</option>
+                    <option>Lithuania</option>
+                    <option>Luxembourg</option>
+                    <option>Macedonia</option>
+                    <option>Madagascar</option>
+                    <option>Malawi</option>
+                    <option>Malaysia</option>
+                    <option>Mali</option>
+                    <option>Mauritania</option>
+                    <option>Mexico</option>
+                    <option>Moldova</option>
+                    <option>Mongolia</option>
+                    <option>Montenegro</option>
+                    <option>Morocco</option>
+                    <option>Mozambique</option>
+                    <option>Myanmar</option>
+                    <option>N. Cyprus</option>
+                    <option>Namibia</option>
+                    <option>Nepal</option>
+                    <option>Netherlands</option>
+                    <option>New Caledonia</option>
+                    <option>New Zealand</option>
+                    <option>Nicaragua</option>
+                    <option>Niger</option>
+                    <option selected>Nigeria</option>
+                    <option>North Korea</option>
+                    <option>Norway</option>
+                    <option>Oman</option>
+                    <option>Pakistan</option>
+                    <option>Palestine</option>
+                    <option>Panama</option>
+                    <option>Papua New Guinea</option>
+                    <option>Paraguay</option>
+                    <option>Peru</option>
+                    <option>Philippines</option>
+                    <option>Poland</option>
+                    <option>Portugal</option>
+                    <option>Puerto Rico</option>
+                    <option>Qatar</option>
+                    <option>Romania</option>
+                    <option>Russia</option>
+                    <option>Rwanda</option>
+                    <option>S. Sudan</option>
+                    <option>Saudi Arabia</option>
+                    <option>Senegal</option>
+                    <option>Serbia</option>
+                    <option>Sierra Leone</option>
+                    <option>Slovakia</option>
+                    <option>Slovenia</option>
+                    <option>Solomon Is.</option>
+                    <option>Somalia</option>
+                    <option>Somaliland</option>
+                    <option>South Africa</option>
+                    <option>South Korea</option>
+                    <option>Spain</option>
+                    <option>Sri Lanka</option>
+                    <option>Sudan</option>
+                    <option>Suriname</option>
+                    <option>Sweden</option>
+                    <option>Switzerland</option>
+                    <option>Syria</option>
+                    <option>Taiwan</option>
+                    <option>Tajikistan</option>
+                    <option>Tanzania</option>
+                    <option>Thailand</option>
+                    <option>Timor-Leste</option>
+                    <option>Togo</option>
+                    <option>Trinidad and Tobago</option>
+                    <option>Tunisia</option>
+                    <option>Turkey</option>
+                    <option>Turkmenistan</option>
+                    <option>Uganda</option>
+                    <option>Ukraine</option>
+                    <option>United Arab Emirates</option>
+                    <option>United Kingdom</option>
+                    <option>United States of America</option>
+                    <option>Uruguay</option>
+                    <option>Uzbekistan</option>
+                    <option>Vanuatu</option>
+                    <option>Venezuela</option>
+                    <option>Vietnam</option>
+                    <option>W. Sahara</option>
+                    <option>Yemen</option>
+                    <option>Zambia</option>
+                    <option>Zimbabwe</option>
+                    <option>Other</option>
+                  </select>
+                  <img src="/icons/chevron-down.svg" alt="" width="16" height="16" />
+                </span>
+              </label>
+              <label class="field"><span>WhatsApp (optional)</span><input type="tel" name="whatsapp" autocomplete="tel" placeholder="+234" /></label>
+            </div>
+            <fieldset class="chips">
+              <legend>What do you want to trade?</legend>
+              <div>
+                <label class="chip"><input type="checkbox" name="markets" value="forex" checked /><img src="/icons/chip-check.svg" alt="" width="14" height="14" />Forex</label>
+                <label class="chip"><input type="checkbox" name="markets" value="gold" checked /><img src="/icons/chip-check.svg" alt="" width="14" height="14" />Gold</label>
+                <label class="chip"><input type="checkbox" name="markets" value="crypto" /><img src="/icons/chip-check.svg" alt="" width="14" height="14" />Crypto</label>
+                <label class="chip"><input type="checkbox" name="markets" value="not-sure" /><img src="/icons/chip-check.svg" alt="" width="14" height="14" /><span>Not sure<span class="hide-sm"> yet</span></span></label>
+              </div>
+            </fieldset>
+            <fieldset class="chips">
+              <legend><span class="hide-sm">How much trading experience do you have?</span><span class="show-sm">Trading experience</span></legend>
+              <div>
+                <label class="chip"><input type="radio" name="experience" value="new" /><img src="/icons/chip-check.svg" alt="" width="14" height="14" />New</label>
+                <label class="chip"><input type="radio" name="experience" value="under-1" /><img src="/icons/chip-check.svg" alt="" width="14" height="14" /><span><span class="hide-sm">Under 1 year</span><span class="show-sm">&lt; 1 yr</span></span></label>
+                <label class="chip"><input type="radio" name="experience" value="1-3" checked /><img src="/icons/chip-check.svg" alt="" width="14" height="14" /><span>1–3 <span class="hide-sm">years</span><span class="show-sm">yrs</span></span></label>
+                <label class="chip"><input type="radio" name="experience" value="3-plus" /><img src="/icons/chip-check.svg" alt="" width="14" height="14" /><span>3+ <span class="hide-sm">years</span><span class="show-sm">yrs</span></span></label>
+              </div>
+            </fieldset>
+            <fieldset class="chips">
+              <legend>Do you already have a broker or exchange account?</legend>
+              <div>
+                <label class="chip"><input type="radio" name="broker" value="mt5" checked /><img src="/icons/chip-check.svg" alt="" width="14" height="14" />Yes, MetaTrader 5</label>
+                <label class="chip"><input type="radio" name="broker" value="exchange" /><img src="/icons/chip-check.svg" alt="" width="14" height="14" />Yes, crypto exchange</label>
+                <label class="chip"><input type="radio" name="broker" value="none" /><img src="/icons/chip-check.svg" alt="" width="14" height="14" />Not yet</label>
+              </div>
+            </fieldset>
+            <label class="consent">
+              <input type="checkbox" name="consent" checked required />
+              <span class="box"><img src="/icons/checkbox-check.svg" alt="" width="12" height="12" /></span>
+              <span>I understand trading carries risk, and I’m happy to get waitlist emails from Novastrum.</span>
+            </label>
+            <p class="form-error" data-form-error role="alert" hidden></p>
+            <button type="submit" class="btn btn-lg btn-block">Join the waitlist</button>
+            <p class="form-note center"><img src="/icons/lock-xs.svg" alt="" width="13" height="13" />We never ask for broker passwords or card details here.</p>
           </form>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="faq-wrap">
-        <header class="sec-head">
+    <section class="section alt" id="faq">
+      <div class="wrap faq-row">
+        <header class="sec-head faq-head">
           <p class="eyebrow">FAQ</p>
-          <h2>Frequently asked questions</h2>
+          <h2>Questions, answered.</h2>
+          <p class="faq-mail">Something else on your mind? Email <a href="mailto:hello@novastrum.com">hello@novastrum.com</a>.</p>
         </header>
-        <div class="faq">
-          <details open><summary>What is Novastrum?</summary><p>Novastrum helps you run trading ideas automatically while keeping your limits, your visibility, and your control in place. You can start in paper mode, review every trade in plain language, and move to live trading only when you are ready.</p></details>
-          <details><summary>What is the difference between paper and live trading?</summary><p>Paper trading runs your strategy on real market prices with no money at risk. Live trading places real orders through your connected broker or exchange, under the same limits you set in paper mode.</p></details>
-          <details><summary>Do I need a broker or exchange account to join the waitlist?</summary><p>No. You only need an email address to join. A broker or exchange connection is required later, and only if you choose to trade live.</p></details>
-          <details><summary>Can Novastrum withdraw my funds?</summary><p>No. Novastrum's API access is trade-only. Funding and withdrawals happen on your broker or exchange, on your schedule, and Novastrum can never move funds out on its own.</p></details>
-          <details><summary>Does Novastrum guarantee returns?</summary><p>No. No automated system can promise a profit. Novastrum shows you what it did and why, and keeps every trade inside the limits you set.</p></details>
-          <details><summary>How is risk managed?</summary><p>You set three limits: how much of your balance goes into each trade, how much you can lose in a day before the bot stops, and how far a stop sits from your entry. Novastrum will not exceed them. Your daily loss limit can be set anywhere up to 10%, which is a hard ceiling nobody can raise.</p></details>
-          <details><summary>Which markets and providers will be supported?</summary><p>Crypto through Binance and OKX, forex through MetaTrader 5, and stocks through Alpaca. All three from launch.</p></details>
-          <details><summary>When will early access open?</summary><p>Early access is opening soon. The waitlist is evaluated on a rolling basis, and members will be notified by email as spots open.</p></details>
-          <details><summary>Who can use live trading?</summary><p>Live trading requires two things: a verified email, which you complete at signup, and a separate identity check. Paper trading needs neither. You can test Novastrum fully before verifying anything.</p></details>
-          <details><summary>What happens after I join the waitlist?</summary><p>You'll get product updates and research invitations, and early access to paper trading when your spot opens. Priority is given to active traders looking for automation.</p></details>
-          <details><summary>How does Novastrum handle forex and crypto differently?</summary><p>Novastrum applies the same risk framework to both markets — position sizing, stop placement, and daily drawdown limits work identically. The difference is execution: forex strategies run during session hours with tighter spreads and lower volatility assumptions, while crypto strategies account for 24/7 trading, wider spreads, and higher volatility. Each market has its own strategy configuration so your limits stay appropriate to the asset class.</p></details>
+        <div class="faq-list">
+          <details open>
+            <summary>What is Novastrum?</summary>
+            <p>An AI trading assistant that runs one clear strategy on forex, gold and crypto, inside your own broker or exchange account, with limits you set and a reason for every trade.</p>
+          </details>
+          <details open>
+            <summary>Can Novastrum withdraw or hold my money?</summary>
+            <p>No. Access is trade-only. Novastrum can place and close trades, but it can never deposit, withdraw or move your money.</p>
+          </details>
+          <details>
+            <summary>What’s the difference between paper and live?</summary>
+            <p>Paper mode runs the same strategy on real prices without risking any money, so you can see how it trades. Live mode places real trades in your own account. You start in paper, and going live is always your choice.</p>
+          </details>
+          <details>
+            <summary>Which brokers and exchanges will work?</summary>
+            <p>Brokers that support MetaTrader 5, and crypto exchanges that offer API keys with withdrawals switched off. Keys that allow withdrawals are rejected.</p>
+          </details>
+          <details>
+            <summary>How is risk managed?</summary>
+            <p>Every trade is sized before it’s placed and has its stop loss set at entry. By default that’s 1% per trade and 3% a day, with a 2% hard cap per trade. News Shield pauses new trades around high-impact events, and the emergency stop halts new trades instantly.</p>
+          </details>
+          <details>
+            <summary>Does Novastrum guarantee returns?</summary>
+            <p>No. No automated system can promise a profit. Trading carries real risk, including losing money, and paper results don’t guarantee live results.</p>
+          </details>
+          <details>
+            <summary>When will I get access?</summary>
+            <p>We invite people from the waitlist in small groups, starting with paper trading. Join the waitlist and we’ll email you when your invite is ready.</p>
+          </details>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <section class="cta" id="waitlist">
-      <div class="wrap">
-        <h2>Be first to try transparent automated trading.</h2>
-        <p>Waitlist is evaluated on a rolling basis. Priority is given to active traders looking for automation.</p>
-        <form class="email-form light" data-form>
-          <input type="email" required placeholder="Enter your email" aria-label="Email address" />
-          <button class="btn" type="submit">Join the waitlist</button>
-        </form>
-        <p class="mono-note">No commitment. Unsubscribe anytime.</p>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" aria-label="Novastrum home"><img src="/logo.png" alt="Novastrum" width="152" height="41" loading="lazy" /></a>
+          <p>Trading you can see into.</p>
+        </div>
+        <nav class="footer-cols" aria-label="Footer">
+          <div>
+            <p class="eyebrow">PRODUCT</p>
+            <a href="#how">How it works</a>
+            <a href="#strategy">Strategy</a>
+            <a href="#safety">Safety</a>
+            <a href="#track-record">Track record</a>
+          </div>
+          <div>
+            <p class="eyebrow">COMPANY</p>
+            <a href="#">About</a>
+            <a href="mailto:hello@novastrum.com">Contact</a>
+            <a href="mailto:hello@novastrum.com">hello@novastrum.com</a>
+          </div>
+          <div>
+            <p class="eyebrow">LEGAL</p>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms of service</a>
+            <a href="#risk-disclosure">Risk disclosure</a>
+          </div>
+        </nav>
       </div>
-    </section>
-
-    <div class="footer">
-      <a href="#" class="footer-logo" aria-label="Novastrum home"><img src="/logo.png" alt="Novastrum" width="193" height="52" loading="lazy" /></a>
-      <div class="footer-links">
-        <div>
-          <a href="#how">How it works</a>
-          <a href="#risk">Risk &amp; Security</a>
-          <a href="#faq">FAQ</a>
-          <a href="#waitlist" class="gap">Join the waitlist →</a>
-        </div>
-        <div>
-          <a href="#">Privacy policy</a>
-          <a href="#">Terms of service</a>
-          <a href="#">Risk disclosure</a>
-        </div>
-        <div>
+      <div class="risk-box" id="risk-disclosure">
+        <p class="risk-title">Risk disclosure</p>
+        <p>Trading forex and crypto carries real risk, including losing money. Risk limits and paper trading reduce that risk but do not remove it. Novastrum does not give personal financial advice.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Novastrum. Barnawa, Kaduna.</p>
+        <div class="socials">
           <a href="#">Instagram</a>
           <a href="#">LinkedIn</a>
           <a href="#">X</a>
         </div>
-        <div>
-          <a href="mailto:hello@novastrum.com">hello@novastrum.com</a>
-          <span>Barnawa, Kaduna</span>
-        </div>
       </div>
-      <div class="footer-tag">
-        <p>Trading you can see into.</p>
-        <small>© 2026 Novastrum. All rights reserved.</small>
-      </div>
-      <div class="wordmark" aria-hidden="true">NOVASTRUM</div>
     </div>
   </footer>
 
