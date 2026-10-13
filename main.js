@@ -412,11 +412,12 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   });
 })();
 
-// Full waitlist form. There is no backend yet, so it validates and confirms inline.
+// Full waitlist form: saves the sign-up and sends the welcome email via /api/waitlist.
 (function waitlistForm() {
   const form = document.querySelector("[data-waitlist-form]");
   if (!form) return;
   const error = form.querySelector("[data-form-error]");
+  const submit = form.querySelector("button[type=submit]");
   const { first_name: name, email, consent } = form.elements;
 
   const fail = (text, field) => {
@@ -432,21 +433,60 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     error.hidden = true;
   });
 
-  form.addEventListener("submit", (e) => {
+  const showDone = (title, text, icon, tone) => {
+    const done = document.createElement("div");
+    done.className = "wl-done";
+    done.setAttribute("role", "status");
+    done.innerHTML = `<span class="done-ico ${tone}"><img src="${icon}" alt="" width="18" height="18" /></span><h3></h3><p></p>`;
+    done.querySelector("h3").textContent = title;
+    done.querySelector("p").textContent = text;
+    form.replaceChildren(done);
+  };
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (submit.disabled) return;
     if (!name.value.trim()) return fail("Add your first name.", name);
     if (!EMAIL_RE.test(email.value.trim())) return fail("Enter a full email address, like ada@example.com", email);
     if (!consent.checked) return fail("Please tick the box to confirm you understand the risks.", consent);
 
-    const done = document.createElement("div");
-    done.className = "wl-done";
-    done.setAttribute("role", "status");
-    done.innerHTML = `
-      <span class="done-ico"><img src="/icons/check-teal.svg" alt="" width="18" height="18" /></span>
-      <h3></h3>
-      <p>We’ll email you when your paper-trading invite is ready. Invites go out in small groups.</p>`;
-    done.querySelector("h3").textContent = `You’re on the list, ${name.value.trim()}.`;
-    form.replaceChildren(done);
+    const data = new FormData(form);
+    const payload = {
+      first_name: data.get("first_name"),
+      email: data.get("email"),
+      country: data.get("country"),
+      whatsapp: data.get("whatsapp"),
+      markets: data.getAll("markets"),
+      experience: data.get("experience"),
+      broker: data.get("broker"),
+      consent: consent.checked,
+      company: data.get("company"),
+    };
+
+    submit.disabled = true;
+    submit.textContent = "Joining…";
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const out = await res.json().catch(() => ({}));
+      if (res.ok && out.status === "exists") {
+        showDone("You’re already on the list", `${payload.email.trim()} is already signed up. We’ll email you when your invite is ready.`, "/icons/clock-amber.svg", "amber");
+      } else if (res.ok) {
+        showDone(`You’re on the list, ${payload.first_name.trim()}.`, "We’ve sent you a confirmation email. We’ll be in touch when your paper-trading invite is ready.", "/icons/check-teal.svg", "");
+      } else {
+        fail(out.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      fail("We couldn’t reach the server. Check your connection and try again.");
+    } finally {
+      if (submit.isConnected) {
+        submit.disabled = false;
+        submit.textContent = "Join the waitlist";
+      }
+    }
   });
 })();
 
