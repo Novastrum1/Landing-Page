@@ -14,7 +14,7 @@
   // Grid: 96px columns (these scroll with the plot) and ~59.3px rows.
   const grid = document.getElementById("grid");
   const gridV = el("g", {}, grid);
-  for (let x = 0.5; x < 1440 + 96; x += 96) el("line", { x1: x, y1: 0, x2: x, y2: 594 }, gridV);
+  for (let x = -20.5; x < 1440 + 96; x += 96) el("line", { x1: x, y1: 0, x2: x, y2: 594 }, gridV);
   for (let i = 0; i <= 10; i++) {
     const y = Math.round(i * 59.3) + 0.5;
     el("line", { x1: 0, y1: y, x2: 1440, y2: y }, grid);
@@ -53,7 +53,7 @@
 
   const PITCH = 23.4;
   const BODY = 17.5;
-  const LIVE_EDGE = 1250; // newest candle stays here once the plot starts scrolling
+  const LIVE_EDGE = 1274; // newest candle stays here once the plot starts scrolling
   const TICK_MS = 150;
   const TICKS_PER_CANDLE = 16;
 
@@ -97,9 +97,9 @@
     }
   };
 
-  // Hour labels continue on from the last one in the design (14:00 at x=1037).
-  let nextTimeX = 1037 + 182;
-  let nextHour = 15;
+  // Hour labels continue on from the last one in the design (16:00 at x=1283.5).
+  let nextTimeX = 1283.5 + 182;
+  let nextHour = 17;
   const addTimes = (offset) => {
     while (nextTimeX - offset < 1500) {
       const t = el("text", { x: nextTimeX, y: 550 }, timesG);
@@ -356,29 +356,193 @@
   });
 })();
 
-// Waitlist forms: no backend yet, so confirm inline.
-document.querySelectorAll("[data-form]").forEach((form) => {
+
+// Mobile menu.
+(function menu() {
+  const btn = document.querySelector("[data-menu-toggle]");
+  const links = document.getElementById("nav-links");
+  if (!btn || !links) return;
+  const set = (open) => {
+    links.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+  btn.addEventListener("click", () => set(!links.classList.contains("open")));
+  links.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+})();
+
+// Ticker: a second copy of the list makes the marquee loop seamlessly.
+(function ticker() {
+  const list = document.querySelector(".ticker-list");
+  if (!list) return;
+  const copy = list.cloneNode(true);
+  copy.setAttribute("aria-hidden", "true");
+  list.after(copy);
+})();
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+// Hero email: validate, then carry the address into the full waitlist form.
+(function heroForm() {
+  const form = document.querySelector("[data-hero-form]");
+  if (!form) return;
+  const input = form.querySelector("input");
+  const msg = form.querySelector(".form-note span");
+  const setError = (text) => {
+    form.classList.toggle("invalid", !!text);
+    input.setAttribute("aria-invalid", String(!!text));
+    msg.textContent = text || form.querySelector(".form-note").dataset.default;
+  };
+  input.addEventListener("input", () => { if (form.classList.contains("invalid") && EMAIL_RE.test(input.value.trim())) setError(""); });
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    let msg = form.querySelector(".ok");
-    if (!msg) {
-      msg = document.createElement("p");
-      msg.className = "ok";
-      msg.setAttribute("role", "status");
-      form.appendChild(msg);
+    const email = input.value.trim();
+    if (!EMAIL_RE.test(email)) {
+      setError(email ? "Enter a full email address, like ada@example.com" : "Enter your email address to join the waitlist");
+      input.focus();
+      return;
     }
-    msg.textContent = "You're on the list. We'll be in touch.";
-    form.reset();
+    setError("");
+    const wl = document.querySelector("[data-waitlist-form]");
+    if (!wl) return;
+    wl.elements.email.value = email;
+    document.getElementById("waitlist").scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => wl.elements.first_name.focus({ preventScroll: true }), 500);
   });
-});
+})();
 
-// Demo emergency-stop toggle in the transparency bento.
-const stopBtn = document.querySelector("[data-stop]");
-if (stopBtn) {
-  stopBtn.setAttribute("aria-pressed", "false");
-  stopBtn.addEventListener("click", () => {
-    const on = stopBtn.getAttribute("aria-pressed") !== "true";
-    stopBtn.setAttribute("aria-pressed", String(on));
-    stopBtn.textContent = on ? "Trading stopped · Resume" : "Stop all trading";
+// Full waitlist form. There is no backend yet, so it validates and confirms inline.
+(function waitlistForm() {
+  const form = document.querySelector("[data-waitlist-form]");
+  if (!form) return;
+  const error = form.querySelector("[data-form-error]");
+  const { first_name: name, email, consent } = form.elements;
+
+  const fail = (text, field) => {
+    error.textContent = text;
+    error.hidden = false;
+    if (field) {
+      field.setAttribute("aria-invalid", "true");
+      field.focus();
+    }
+  };
+  form.addEventListener("input", (e) => {
+    e.target.removeAttribute?.("aria-invalid");
+    error.hidden = true;
   });
-}
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!name.value.trim()) return fail("Add your first name.", name);
+    if (!EMAIL_RE.test(email.value.trim())) return fail("Enter a full email address, like ada@example.com", email);
+    if (!consent.checked) return fail("Please tick the box to confirm you understand the risks.", consent);
+
+    const done = document.createElement("div");
+    done.className = "wl-done";
+    done.setAttribute("role", "status");
+    done.innerHTML = `
+      <span class="done-ico"><img src="/icons/check-teal.svg" alt="" width="18" height="18" /></span>
+      <h3></h3>
+      <p>We’ll email you when your paper-trading invite is ready. Invites go out in small groups.</p>`;
+    done.querySelector("h3").textContent = `You’re on the list, ${name.value.trim()}.`;
+    form.replaceChildren(done);
+  });
+})();
+
+// "Why this trade" links fill the explanation card with that trade's reasoning.
+(function whyThisTrade() {
+  const card = document.querySelector("[data-why]");
+  if (!card) return;
+  const title = card.querySelector("[data-why-title]");
+  const rows = card.querySelector("[data-why-rows]");
+  const text = card.querySelector("[data-why-text]");
+  const trades = {
+    eurusd: {
+      title: "EUR/USD · Buy · 15M",
+      rows: [["Daily bias", "Bullish", "green"], ["4H sweep", "Took 1.0830", "green"], ["1H order block", "1.0840 – 1.0845", "green"], ["Entry", "1.08426"], ["Size", "1.0% of balance"], ["Stop loss", "1.08210", "red"]],
+      text: "The daily chart pointed up, so the bot only looked for buys. Price swept below a 4-hour low and snapped back. It bought at a 1-hour order block once the 15-minute chart confirmed, with the stop just under the sweep.",
+    },
+    btcusdt: {
+      title: "BTC/USDT · Buy · 15M",
+      rows: [["Daily bias", "Bullish", "green"], ["4H sweep", "Took 66,880", "green"], ["1H order block", "66,950 – 67,240", "green"], ["Entry", "67,215"], ["Size", "1.0% of balance"], ["Stop loss", "66,207", "red"]],
+      text: "The daily chart pointed up. Price swept a 4-hour low and recovered, so the bot bought the return to a 1-hour order block with its stop under the sweep. Price fell back through the level and the stop closed the trade for a planned loss.",
+    },
+    xauusd: {
+      title: "XAU/USD · Sell · 15M",
+      rows: [["Daily bias", "Bearish", "red"], ["4H sweep", "Took 2,398.40", "green"], ["1H order block", "2,390.50 – 2,393.00", "green"], ["Entry", "2,391.20"], ["Size", "1.0% of balance"], ["Stop loss", "2,401.60", "red"]],
+      text: "The daily chart pointed down, so the bot only looked for sells. Price ran above a 4-hour high and turned back. It sold once the 15-minute chart shifted lower, and took profit as gold fell toward the target.",
+    },
+    ethusdt: {
+      title: "ETH/USDT · Buy · 15M",
+      rows: [["Daily bias", "Bullish", "green"], ["4H sweep", "Took 3,142", "green"], ["1H order block", "3,168 – 3,186", "green"], ["Entry", "3,180"], ["Size", "1.0% of balance"], ["Stop loss", "3,124", "red"]],
+      text: "The daily chart pointed up. After a sweep of a 4-hour low, the bot bought the return to a 1-hour order block. The move didn’t hold and the stop closed the trade for a planned loss.",
+    },
+  };
+
+  document.querySelectorAll("[data-why-trade]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const t = trades[btn.dataset.whyTrade];
+      if (!t) return;
+      title.textContent = t.title;
+      rows.replaceChildren(...t.rows.map(([k, v, cls]) => {
+        const row = document.createElement("div");
+        const dt = document.createElement("dt");
+        const dd = document.createElement("dd");
+        dt.textContent = k;
+        dd.textContent = v;
+        if (cls) dd.className = cls;
+        row.append(dt, dd);
+        return row;
+      }));
+      text.textContent = t.text;
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+      card.focus({ preventScroll: true });
+      card.classList.add("flash");
+      setTimeout(() => card.classList.remove("flash"), 1200);
+    });
+  });
+})();
+
+// Demo emergency stop: press and hold to stop, tap again to resume.
+(function emergencyStop() {
+  const card = document.querySelector("[data-stop-card]");
+  if (!card) return;
+  const btn = card.querySelector("[data-stop]");
+  const label = card.querySelector("[data-stop-label]");
+  const note = card.querySelector("[data-stop-note]");
+  const defaultNote = note.textContent;
+  const HOLD_MS = 1200;
+  let timer = null;
+  let swallowClick = false; // the click that ends a successful hold
+
+  const setStopped = (on) => {
+    card.classList.toggle("stopped", on);
+    btn.setAttribute("aria-pressed", String(on));
+    label.textContent = on ? "Trading stopped · Tap to resume" : "Hold to stop all trading";
+    note.textContent = on ? "No new trades will open. Open trades keep their stop loss." : defaultNote;
+  };
+  const cancel = () => {
+    clearTimeout(timer);
+    timer = null;
+    btn.classList.remove("holding");
+  };
+
+  btn.setAttribute("aria-pressed", "false");
+  btn.addEventListener("pointerdown", (e) => {
+    swallowClick = false;
+    if (card.classList.contains("stopped") || e.button !== 0) return;
+    btn.setPointerCapture(e.pointerId);
+    btn.classList.add("holding");
+    timer = setTimeout(() => { cancel(); setStopped(true); swallowClick = true; }, HOLD_MS);
+  });
+  btn.addEventListener("pointerup", cancel);
+  btn.addEventListener("pointercancel", cancel);
+  btn.addEventListener("contextmenu", (e) => e.preventDefault());
+  btn.addEventListener("click", (e) => {
+    if (swallowClick) return void (swallowClick = false);
+    // Keyboard users (Enter/Space) can't hold, so a key press stops directly.
+    if (card.classList.contains("stopped")) setStopped(false);
+    else if (e.detail === 0) setStopped(true);
+  });
+})();
