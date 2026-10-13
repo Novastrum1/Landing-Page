@@ -1,0 +1,77 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="boardBg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1320"/>
+      <stop offset="1" stop-color="#0F1D2D"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#A7F3D0"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FCA5A5"/>
+      <stop offset="1" stop-color="#F87171"/>
+    </linearGradient>
+    <linearGradient id="accentBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9ED0FF"/>
+      <stop offset="1" stop-color="#4F8AF7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#boardBg)"/>
+  <circle cx="1010" cy="110" r="170" fill="#10223A"/>
+  <circle cx="160" cy="620" r="180" fill="#0D1F34"/>
+
+  <rect x="80" y="80" width="1040" height="600" rx="30" fill="#0C1727" stroke="#223A59"/>
+
+  <rect x="120" y="120" width="1040" height="80" rx="20" fill="#0A1523" stroke="#1F3350"/>
+  <rect x="146" y="148" width="118" height="24" rx="12" fill="#DCE7F8"/>
+  <rect x="960" y="140" width="160" height="40" rx="20" fill="#101F31" stroke="#2A3E5C"/>
+  <circle cx="996" cy="160" r="8" fill="#34D399"/>
+  <text x="1012" y="167" fill="#DDEAFD" font-family="Arial, sans-serif" font-size="14">Paper mode</text>
+
+  <g>
+    <rect x="120" y="230" width="460" height="180" rx="26" fill="#0D1A2C" stroke="#223A59"/>
+    <text x="152" y="266" fill="#9FB2D1" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">WHY THE BOT ENTERED</text>
+    <text x="152" y="312" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">BTC / USDT · 15M</text>
+    <rect x="152" y="334" width="308" height="10" rx="5" fill="#1C2F46"/>
+    <rect x="152" y="334" width="220" height="10" rx="5" fill="url(#accentBlue)"/>
+    <text x="152" y="370" fill="#BED2EC" font-family="Arial, sans-serif" font-size="15">Signal: momentum above 20-period average</text>
+    <text x="152" y="392" fill="#BED2EC" font-family="Arial, sans-serif" font-size="15">Entered at 67,215 · position size 2.0% of balance</text>
+    <text x="152" y="374" fill="#BED2EC" font-family="Arial, sans-serif" font-size="15" opacity="0"> </text>
+  </g>
+
+  <g>
+    <rect x="610" y="230" width="220" height="180" rx="26" fill="#0D1A2C" stroke="#223A59"/>
+    <text x="640" y="266" fill="#9FB2D1" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">CURRENT RISK</text>
+    <text x="640" y="328" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="34" font-weight="700">4.2%</text>
+    <text x="640" y="354" fill="#A5B4CF" font-family="Arial, sans-serif" font-size="14">of balance in open trades</text>
+    <rect x="640" y="372" width="150" height="12" rx="6" fill="#1C2F46"/>
+    <rect x="640" y="372" width="72" height="12" rx="6" fill="url(#accentGreen)"/>
+  </g>
+
+  <g>
+    <rect x="860" y="230" width="220" height="180" rx="26" fill="#0D1A2C" stroke="#223A59"/>
+    <text x="890" y="266" fill="#9FB2D1" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">DAILY DRAWDOWN</text>
+    <text x="890" y="328" fill="#FCA5A5" font-family="Arial, sans-serif" font-size="34" font-weight="700">-2.1%</text>
+    <text x="890" y="354" fill="#A5B4CF" font-family="Arial, sans-serif" font-size="14">against a 5% hard ceiling</text>
+    <rect x="890" y="372" width="150" height="12" rx="6" fill="#1C2F46"/>
+    <rect x="890" y="372" width="82" height="12" rx="6" fill="url(#accentRed)"/>
+  </g>
+
+  <g>
+    <rect x="120" y="450" width="960" height="180" rx="26" fill="#0E202F" stroke="#213C5C"/>
+    <text x="150" y="488" fill="#9FB2D1" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">FULL TRADE HISTORY</text>
+    <rect x="150" y="520" width="900" height="80" rx="18" fill="#0A1725" stroke="#1F3047"/>
+    <line x1="150" y1="553" x2="1050" y2="553" stroke="#243D5A"/>
+    <text x="182" y="548" fill="#D9E8FA" font-family="Arial, sans-serif" font-size="14" font-weight="600">Instrument</text>
+    <text x="390" y="548" fill="#D9E8FA" font-family="Arial, sans-serif" font-size="14" font-weight="600">Entry</text>
+    <text x="560" y="548" fill="#D9E8FA" font-family="Arial, sans-serif" font-size="14" font-weight="600">Exit</text>
+    <text x="735" y="548" fill="#D9E8FA" font-family="Arial, sans-serif" font-size="14" font-weight="600">Result</text>
+    <text x="182" y="582" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="14">BTC / USDT</text>
+    <text x="390" y="582" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="14">67,215</text>
+    <text x="560" y="582" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="14">66,207</text>
+    <text x="735" y="582" fill="#FCA5A5" font-family="Arial, sans-serif" font-size="14">-1.4%</text>
+    <text x="182" y="606" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="14" opacity="0"> </text>
+  </g>
+</svg>

@@ -1,0 +1,80 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="900" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111D"/>
+      <stop offset="1" stop-color="#0E1B2D"/>
+    </linearGradient>
+    <linearGradient id="green2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#A7F3D0"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="red2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FDB4B4"/>
+      <stop offset="1" stop-color="#F87171"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#101F32"/>
+      <stop offset="1" stop-color="#0A1525"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg2)"/>
+  <circle cx="720" cy="177" r="160" fill="#0C1E31"/>
+  <circle cx="170" cy="1020" r="220" fill="#0E1C2D"/>
+
+  <rect x="120" y="70" width="660" height="1060" rx="44" fill="url(#card2)" stroke="#1C2E46"/>
+  <rect x="160" y="122" width="580" height="66" rx="20" fill="#0A1525" stroke="#1D2F47"/>
+  <circle cx="198" cy="155" r="18" fill="#202E3F"/>
+  <rect x="234" y="144" width="84" height="22" rx="11" fill="#E5EBF4"/>
+  <rect x="560" y="138" width="130" height="34" rx="17" fill="#111F31" stroke="#30496A"/>
+  <circle cx="597" cy="155" r="8" fill="#34D399"/>
+  <text x="614" y="162" fill="#D5E2F4" font-family="Arial, sans-serif" font-size="12">Paper</text>
+
+  <rect x="160" y="220" width="580" height="210" rx="26" fill="#0B1B2B" stroke="#233B57"/>
+  <text x="190" y="260" fill="#9DB2D5" font-family="Arial, sans-serif" font-size="12" letter-spacing="2.6">BALANCE</text>
+  <text x="190" y="315" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="46" font-weight="700">$184,250</text>
+  <text x="190" y="350" fill="#6EE7B7" font-family="Arial, sans-serif" font-size="17">+2.8% this month</text>
+
+  <path d="M430 336C470 325 L508 292 L544 300 L582 236 L650 280" stroke="#7C9BFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <circle cx="650" cy="280" r="8" fill="#7C9BFF"/>
+  <circle cx="430" cy="336" r="8" fill="#7C9BFF"/>
+
+  <g>
+    <rect x="160" y="460" width="280" height="160" rx="24" fill="#0B1E30" stroke="#213B5A"/>
+    <text x="188" y="498" fill="#9DB2D5" font-family="Arial, sans-serif" font-size="12" letter-spacing="2.4">OPEN POSITIONS</text>
+    <text x="188" y="552" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="44" font-weight="700">4</text>
+    <text x="188" y="583" fill="#A5B4CF" font-family="Arial, sans-serif" font-size="14">2 crypto / 2 FX</text>
+  </g>
+
+  <g>
+    <rect x="460" y="460" width="280" height="160" rx="24" fill="#0B1E30" stroke="#213B5A"/>
+    <text x="488" y="498" fill="#9DB2D5" font-family="Arial, sans-serif" font-size="12" letter-spacing="2.4">DAILY DRAWDOWN</text>
+    <text x="488" y="554" fill="#FCA5A5" font-family="Arial, sans-serif" font-size="42" font-weight="700">-2.1%</text>
+    <text x="488" y="582" fill="#A5B4CF" font-family="Arial, sans-serif" font-size="14">5% hard cap</text>
+  </g>
+
+  <g>
+    <rect x="160" y="650" width="580" height="300" rx="26" fill="#0D1A2A" stroke="#243D5E"/>
+    <text x="190" y="690" fill="#A5B4CF" font-family="Arial, sans-serif" font-size="12" letter-spacing="2.6">TRADE LOG</text>
+    <g>
+      <rect x="190" y="710" width="520" height="66" rx="18" fill="#0F2438" stroke="#274160"/>
+      <circle cx="220" cy="743" r="11" fill="url(#green2)"/>
+      <text x="246" y="739" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="18" font-weight="600">BTC / USDT</text>
+      <text x="246" y="760" fill="#9DB2D5" font-family="Arial, sans-serif" font-size="12">Entry 67,215 · TP 68,940</text>
+    </g>
+    <g>
+      <rect x="190" y="794" width="520" height="66" rx="18" fill="#0F2438" stroke="#274160"/>
+      <circle cx="220" cy="827" r="11" fill="#FBBF24"/>
+      <text x="246" y="823" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="18" font-weight="600">EUR / USD</text>
+      <text x="246" y="844" fill="#9DB2D5" font-family="Arial, sans-serif" font-size="12">Opened 1.0842 · Stop 1.0710</text>
+    </g>
+    <g>
+      <rect x="190" y="878" width="520" height="40" rx="14" fill="#162C42"/>
+      <text x="218" y="905" fill="#DDE9F9" font-family="Arial, sans-serif" font-size="14">Risk fence active · auto stop engaged</text>
+      <rect x="605" y="892" width="80" height="14" rx="7" fill="url(#red2)"/>
+    </g>
+  </g>
+
+  <rect x="278" y="1008" width="344" height="64" rx="18" fill="#0B1522" stroke="#263C56"/>
+  <text x="331" y="1047" fill="#EAF2FF" font-family="Arial, sans-serif" font-size="22" font-weight="700">Join waitlist</text>
+</svg>

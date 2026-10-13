@@ -1,0 +1,107 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071019"/>
+      <stop offset="1" stop-color="#101827"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#142233"/>
+      <stop offset="1" stop-color="#0D1727"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6EE7B7"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FCA5A5"/>
+      <stop offset="1" stop-color="#F87171"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020817" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="1080" cy="120" r="200" fill="#0F1E34"/>
+  <circle cx="980" cy="560" r="240" fill="#101D2D"/>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="60" width="1080" height="640" rx="28" fill="url(#panel)" stroke="#213143"/>
+  </g>
+
+  <rect x="88" y="88" width="1024" height="54" rx="16" fill="#0B1524" stroke="#1A2D42"/>
+  <rect x="112" y="106" width="86" height="18" rx="9" fill="#DDE7F5"/>
+  <circle cx="925" cy="115" r="8" fill="#34D399"/>
+  <circle cx="955" cy="115" r="8" fill="#FBBF24"/>
+  <circle cx="985" cy="115" r="8" fill="#F87171"/>
+  <rect x="876" y="102" width="120" height="26" rx="13" fill="#101E2E"/>
+
+  <g>
+    <rect x="88" y="174" width="300" height="160" rx="22" fill="#0C1A2E" stroke="#1B2E45"/>
+    <text x="112" y="210" fill="#92A4BE" font-family="Arial, sans-serif" font-size="13" letter-spacing="2.2">BALANCE</text>
+    <text x="112" y="252" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="38" font-weight="700">$184,250</text>
+    <text x="112" y="280" fill="#6EE7B7" font-family="Arial, sans-serif" font-size="15">+2.8% this month</text>
+    <rect x="112" y="294" width="120" height="8" rx="4" fill="#1C2F46"/>
+    <rect x="112" y="294" width="82" height="8" rx="4" fill="url(#greenGrad)"/>
+  </g>
+
+  <g>
+    <rect x="412" y="174" width="280" height="160" rx="22" fill="#0C1A2E" stroke="#1B2E45"/>
+    <text x="436" y="210" fill="#92A4BE" font-family="Arial, sans-serif" font-size="13" letter-spacing="2.2">OPEN POSITIONS</text>
+    <text x="436" y="253" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="36" font-weight="700">4</text>
+    <text x="436" y="280" fill="#A5B4CF" font-family="Arial, sans-serif" font-size="14">2 crypto / 2 FX</text>
+    <rect x="436" y="294" width="144" height="12" rx="6" fill="#1C2F46"/>
+    <rect x="436" y="294" width="98" height="12" rx="6" fill="url(#purpleGrad)"/>
+  </g>
+
+  <g>
+    <rect x="716" y="174" width="368" height="160" rx="22" fill="#0C1A2E" stroke="#1B2E45"/>
+    <text x="742" y="210" fill="#92A4BE" font-family="Arial, sans-serif" font-size="13" letter-spacing="2.2">RISK CONTROL</text>
+    <text x="742" y="254" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="36" font-weight="700">2.1%</text>
+    <text x="742" y="280" fill="#A5B4CF" font-family="Arial, sans-serif" font-size="14">Daily drawdown against 5% cap</text>
+    <rect x="742" y="298" width="280" height="12" rx="6" fill="#1C2F46"/>
+    <rect x="742" y="298" width="118" height="12" rx="6" fill="url(#redGrad)"/>
+  </g>
+
+  <g>
+    <rect x="88" y="360" width="720" height="280" rx="22" fill="#0D1A2A" stroke="#1A2E46"/>
+    <text x="112" y="392" fill="#9FB2D1" font-family="Arial, sans-serif" font-size="12" letter-spacing="2.7">STRATEGY PERFORMANCE</text>
+    <text x="112" y="430" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="26" font-weight="600">BTC / USDT · 15M</text>
+    <line x1="112" y1="480" x2="760" y2="480" stroke="#1F334F"/>
+    <line x1="112" y1="430" x2="112" y2="610" stroke="#1F334F"/>
+    <path d="M112 540C160 510 L200 530 L255 500 L310 450 L360 470 L420 420 L470 445 L520 380 L575 400 L630 330 L680 360 L760 290" stroke="#7C9BFF" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M112 560C160 540 L200 565 L255 520 L310 530 L360 585 L420 575 L470 512 L520 540 L575 468 L630 500 L680 440 L760 405" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.9"/>
+    <circle cx="630" cy="330" r="7" fill="#7C9BFF"/>
+    <circle cx="760" cy="290" r="7" fill="#7C9BFF"/>
+    <rect x="620" y="236" width="144" height="58" rx="14" fill="#112136" stroke="#243D5E"/>
+    <text x="640" y="264" fill="#A9BEDC" font-family="Arial, sans-serif" font-size="12">ENTRY</text>
+    <text x="640" y="282" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="18" font-weight="700">67,215</text>
+  </g>
+
+  <g>
+    <rect x="836" y="360" width="276" height="280" rx="22" fill="#0D1A2A" stroke="#1A2E46"/>
+    <text x="860" y="392" fill="#9FB2D1" font-family="Arial, sans-serif" font-size="12" letter-spacing="2.7">TRADE LOG</text>
+    <g>
+      <rect x="860" y="416" width="228" height="54" rx="14" fill="#0E2437" stroke="#203A5A"/>
+      <circle cx="885" cy="443" r="10" fill="#34D399"/>
+      <text x="905" y="438" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="15" font-weight="600">BTC / USDT</text>
+      <text x="905" y="456" fill="#94A8C8" font-family="Arial, sans-serif" font-size="12">Entry 67,215 · TP 68,940</text>
+    </g>
+    <g>
+      <rect x="860" y="484" width="228" height="54" rx="14" fill="#0E2437" stroke="#203A5A"/>
+      <circle cx="885" cy="511" r="10" fill="#FBBF24"/>
+      <text x="905" y="506" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="15" font-weight="600">EUR / USD</text>
+      <text x="905" y="524" fill="#94A8C8" font-family="Arial, sans-serif" font-size="12">Opened 1.0842 · Stop 1.0710</text>
+    </g>
+    <g>
+      <rect x="860" y="552" width="228" height="54" rx="14" fill="#0E2437" stroke="#203A5A"/>
+      <circle cx="885" cy="579" r="10" fill="#F87171"/>
+      <text x="905" y="574" fill="#F4F8FF" font-family="Arial, sans-serif" font-size="15" font-weight="600">AAPL</text>
+      <text x="905" y="592" fill="#94A8C8" font-family="Arial, sans-serif" font-size="12">Closed +1.2% · risk capped</text>
+    </g>
+  </g>
+</svg>
